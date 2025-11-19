@@ -1,6 +1,6 @@
 @media (max-width: 768px) {
   body {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
   }
   body .cart {
@@ -9,14 +9,14 @@
         -ms-flex-direction: column;
             flex-direction: column;
     width: 90vw;
-    height: 70vh;
+    height: auto;
     -webkit-box-shadow: 55px 85px 160px -70px rgba(0, 0, 0, 0.15), -55px 85px 160px -70px rgba(0, 0, 0, 0.15);
             box-shadow: 55px 85px 160px -70px rgba(0, 0, 0, 0.15), -55px 85px 160px -70px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
   }
   body .img-div {
     width: 100%;
     border-radius: 0.9rem 0.9rem 0 0;
-    background-color: aqua;
   }
   body .img-div img {
     width: 100%;
@@ -25,12 +25,19 @@
   body .info {
     padding: 2rem 2rem 1.5rem 2.5rem;
     width: 100%;
-    height: 70%;
+    height: auto;
+    gap: 1.5em;
   }
   body .info h1 {
     font-size: clamp(1.125rem, 0.6659836066rem + 0.956284153vw, 1.5625rem);
     width: 90%;
     line-height: 1.5rem;
+  }
+  body .info .bottom-div {
+    position: static;
+  }
+  .btn-div button.change-color-in-btn {
+    background-color: hsl(214, 17%, 51%) !important;
   }
 }
 * {
@@ -65,12 +72,12 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 45vw;
+  width: 60vw;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  height: 35vh;
+  height: auto;
   -webkit-box-shadow: 55px 85px 160px -70px rgba(0, 0, 0, 0.15);
           box-shadow: 55px 85px 160px -70px rgba(0, 0, 0, 0.15);
   border-radius: 0.9rem;
@@ -108,7 +115,8 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 1.7rem;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   padding: 2rem 5rem 1.5rem 2.5rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -117,8 +125,8 @@ body {
 .info h1 {
   position: relative;
   display: block;
-  line-height: 2rem;
-  font-size: clamp(1.125rem, 0.6659836066rem + 0.956284153vw, 1.5625rem);
+  line-height: 1.1em;
+  font-size: clamp(1.25rem, -0.0614754098rem + 2.7322404372vw, 2.5rem);
   color: hsl(217, 19%, 35%);
   font-weight: 600;
   width: auto;
@@ -127,12 +135,12 @@ body {
 .info p {
   position: relative;
   display: block;
-  line-height: 1.2rem;
+  line-height: 1.5em;
   width: auto;
   height: auto;
   color: hsl(214, 17%, 51%);
   font-weight: 400;
-  font-size: clamp(0.625rem, 0.362704918rem + 0.5464480874vw, 0.875rem);
+  font-size: clamp(0.875rem, 0.481557377rem + 0.8196721311vw, 1.25rem);
 }
 .info .bottom-div {
   display: -webkit-box;
@@ -205,6 +213,7 @@ body {
           align-items: center;
 }
 .info .bottom-div .btn-div button {
+  position: relative;
   border: none;
   width: 2rem;
   height: 2rem;
@@ -222,7 +231,7 @@ body {
   z-index: 101;
   background-color: transparent;
 }
-.info .bottom-div .sharing-div {
+.info .bottom-div .btn-div button .sharing-div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -245,19 +254,21 @@ body {
   z-index: 100;
   border-radius: 10px;
   bottom: 150%;
-  left: 69%;
   opacity: 0;
-  -webkit-transform: translateY(30px);
-          transform: translateY(30px);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-.info .bottom-div .sharing-div svg {
+.info .bottom-div .btn-div button .sharing-div svg {
   cursor: pointer;
 }
-.info .bottom-div .sharing-div p {
+.info .bottom-div .btn-div button .sharing-div p {
   letter-spacing: 0.15rem;
   font-weight: 700;
+  font-size: 1rem;
 }
 .info .bottom-div .sharing-div::after {
   position: absolute;
@@ -269,6 +280,45 @@ body {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   border-color: hsl(217, 19%, 35%) transparent transparent transparent;
+}
+.info .bottom-div .sharing-div-mobile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  height: 3.5rem;
+  background-color: hsl(217, 19%, 35%);
+  color: hsl(214, 17%, 51%);
+  width: 100%;
+  height: 30%;
+  z-index: 100;
+  border-radius: 0px 0 10px 10px;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.info .bottom-div .sharing-div-mobile svg {
+  cursor: pointer;
+}
+.info .bottom-div .sharing-div-mobile p {
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 .change-fill-in-btn {
