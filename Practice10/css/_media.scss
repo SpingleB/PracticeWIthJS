@@ -1,0 +1,60 @@
+@media (max-width: 601px) {
+    .container {
+        width: 100vw !important;
+        height: 100vh !important;
+
+        
+        .sign-cart {
+            padding: 0;
+            border-radius: 0;
+            width: 100vw;
+            height: 100%;
+            flex-direction: column-reverse;
+            gap: 5%;
+            
+            #main-svg {
+                width: 100%;
+            }
+
+            &__main-div {
+                flex: 1;
+                height: 60vh;
+                width: 100vw;
+                padding: 0 1.5em;
+                gap: 5%;
+
+                h1 {
+                    @include fluid-text(55, 40);
+                    margin: 0;
+                    width: 90%;
+                }
+
+                #description {
+                    width: 90%;
+                    
+                }
+
+                &__conditionals-div {
+                    .conditional{
+                        width: 90%;
+                    }
+                    
+                }
+            }
+            &__form-div {
+                margin-top: 1rem;
+                & form {
+                    #email {
+                        width: 100%;
+                        height: 4.5em;
+                    }
+
+                    .email-submit-btn {
+                        width: 100%;
+                        height: 4.5em;
+                    }
+                }
+            }
+        }
+    }
+}

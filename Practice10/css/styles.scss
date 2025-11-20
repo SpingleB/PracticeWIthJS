@@ -1,0 +1,173 @@
+@import 'mixins';
+@import 'variables';
+@import 'fonts';
+@import 'media';
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    @include flex-center;
+    background-color: #36384D;
+    font-family: "Roboto", sans-serif;
+    font-style: normal; 
+    box-sizing: border-box;
+}
+
+.success-icon {
+    width: 100%;
+    margin: 0;
+}
+
+.container {
+    @include flex-center;
+    width: 70vw;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.sign-cart {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    padding: 1.5em 2em;
+    border-radius: 30px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: 0;
+
+    #main-svg {
+        display: block;
+        width: 100%;
+        margin: 0;
+    }
+
+    &__main-div {
+    display: flex;
+    width: 50%;
+    align-items: start;
+    flex-direction: column;
+    gap: 5%;
+    margin: 0;
+    box-sizing: border-box;
+
+    h1 {
+        @include fluid-text(50, 30);
+        text-align: start;
+        width: 100%;
+        font-weight: 700;
+        color: #242742;
+        margin: 0;
+        margin-top: 17%;
+
+    }
+
+    #description {
+        text-align: start;
+        color: #242742;
+        font-weight: 400;
+        width: 85%;
+        margin: 0;
+        @include fluid-text(16, 14);
+    }
+
+     &__conditionals-div{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        width: 100%;
+        gap: 0.5em;
+            .conditional {
+            @include flex-center;
+            align-items: start;
+            @include fluid-text(16, 14);
+            justify-content: start;
+            // height: 1.5rem;
+            color: #242742;
+            gap: 1em;
+            margin: 0;
+        }
+    }
+
+}
+
+    &__form-div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        align-items: start;
+        justify-content: center;
+        height: 33%;
+        box-sizing: border-box;
+
+          &__commetns-div {
+            height: 1.5em;
+            width: 94%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            #email-comment {
+                color: #242742;
+                font-weight: 700;
+            }
+
+            #error-comment {
+                color: #FF6155;
+                font-weight: 700;
+            }
+          }
+
+          & form{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+            box-sizing: border-box;
+
+            #email {
+                width: 90%;
+                height: 4em;
+                border-radius: 8px;
+                border: solid 1px #949494;
+                outline: none;
+                padding-left: 1.5em;
+                box-sizing: border-box;
+
+                &::placeholder {
+                    color: #949494;
+                }
+
+                &:focus::placeholder {
+                    opacity: 0;
+                    transition: 0.3s;
+                }
+            }
+
+            .email-submit-btn {
+                @include flex-center;
+                background-color: #242742;
+                border: none;
+                height: 4em;
+                width: 90%;
+                color: #FFFFFF;
+                font-weight: 600;
+                text-align: center;
+                @include fluid-text(16, 14);
+                border-radius: 8px;
+                cursor: pointer;
+                box-sizing: border-box;
+
+                &:active {
+                    background: linear-gradient(to right, #FF6A3A, #FF527B)
+                }
+            }
+          }
+        }
+
+}
+
