@@ -12,14 +12,14 @@
   @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
   </style>
 </head>
-<body>
-  <div class="container">
+<body class="h-100vh">
+  <div class="container h-100vh">
  
   <section class="sign-cart">
   <div class="sign-cart__main-div">
-  <h1>Stay updated!</h1>
-  <p id="description">Join 60,000+ product managers receiving monthly updates on:</p>
-  <div class="sign-cart__main-div__conditionals-div">
+  <h1 class="w-100">Stay updated!</h1>
+  <p id="description fw-400">Join 60,000+ product managers receiving monthly updates on:</p>
+  <div class="sign-cart__main-div__conditionals-div w-100">
   <p class="conditional"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21"><g fill="none"><circle cx="10.5" cy="10.5" r="10.5" fill="#FF6155"/><path stroke="#FFF" stroke-width="2" d="M6 11.381 8.735 14 15 8"/></g></svg>
   Product discovery and building what matters</p>
   <p class="conditional"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21"><g fill="none"><circle cx="10.5" cy="10.5" r="10.5" fill="#FF6155"/><path stroke="#FFF" stroke-width="2" d="M6 11.381 8.735 14 15 8"/></g></svg>
@@ -27,11 +27,11 @@
   <p class="conditional"><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21"><g fill="none"><circle cx="10.5" cy="10.5" r="10.5" fill="#FF6155"/><path stroke="#FFF" stroke-width="2" d="M6 11.381 8.735 14 15 8"/></g></svg>
   And much more!</p>
   </div>
-  <div class="sign-cart__form-div">
-  <div class="sign-cart__form-div__commetns-div"><small id="email-comment">Email address</small><small id="error-comment"></small></div>
-  <form>
-    <input type="email" name="email" id="email" required autofocus class="email-input" placeholder="email@company.com">
-    <input type="submit" class="email-submit-btn" value="Subscribe to monthly newsletter">
+  <div class="sign-cart__form-div w-100">
+  <div class="sign-cart__form-div__commetns-div"><small id="email-comment" class="fw-700">Email address</small><small id="error-comment" class="fw-700"></small></div>
+  <form class="w-100">
+    <input type="email" name="email" id="email" required class="email-input" placeholder="email@company.com">
+    <input type="submit" class="email-submit-btn roboto" value="Subscribe to monthly newsletter">
   </form>
   </div>
   </div>
@@ -52,18 +52,13 @@
   >
   </picture>
   </section>
-  
-  <!-- Success message start -->
-
-  <!-- Thanks for subscribing!
-
-  A confirmation email has been sent to ash@loremcompany.com. 
-  Please open it and click the button inside to confirm your subscription.
-
-  Dismiss message -->
-
-  <!-- Success message end -->
+    <div class="success">
+      <svg class="mb-1" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><defs><linearGradient id="a" x1="100%" x2="0%" y1="0%" y2="100%"><stop offset="0%" stop-color="#FF6A3A"/><stop offset="100%" stop-color="#FF527B"/></linearGradient></defs><g fill="none"><circle cx="32" cy="32" r="32" fill="url(#a)"/><path stroke="#FFF" stroke-width="4" d="m18.286 34.686 8.334 7.98 19.094-18.285"/></g></svg>
+      <h1 class="mb-1">Thanks for subscribing!</h1>
+      <p class="mb-1 fw-400">A confirmation email has been sent to <span id="user-email fw-600">ash@loremcompany.com</span>. 
+      Please open it and click the button inside to confirm your subscription.</p>
+      <button type="button" class="roboto w-100 fw-600">Dismiss message</button>
+    </div>
   </div>
-
 </body>
 </html>

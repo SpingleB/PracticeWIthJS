@@ -1,57 +1,136 @@
 @media (max-width: 601px) {
     .container {
-        width: 100vw !important;
-        height: 100vh !important;
+        min-width: 100vw !important;
+        min-height: 100vh !important;
 
-        
         .sign-cart {
-            padding: 0;
+            min-width: 100%;
+            height: 100vh;
             border-radius: 0;
-            width: 100vw;
-            height: 100%;
             flex-direction: column-reverse;
-            gap: 5%;
-            
+            padding: 0;
+            gap: 0;
+
             #main-svg {
-                width: 100%;
+                height: auto;
             }
 
             &__main-div {
-                flex: 1;
-                height: 60vh;
-                width: 100vw;
-                padding: 0 1.5em;
-                gap: 5%;
-
+                width: 100%;
+                padding: 1.5em;
+                height: auto;
+                gap: 1.5rem;
                 h1 {
-                    @include fluid-text(55, 40);
                     margin: 0;
-                    width: 90%;
+                    @include fluid-text(60, 40);
                 }
 
                 #description {
                     width: 90%;
-                    
+                    @include fluid-text(18, 15);
                 }
 
                 &__conditionals-div {
-                    .conditional{
-                        width: 90%;
-                    }
+                    width: 100%;
                     
+                    .conditional {
+                        @include fluid-text(20, 15);
+                    }
                 }
             }
+
             &__form-div {
-                margin-top: 1rem;
+                width: 100%;
+                height: auto;
+                margin-bottom: 2em;
+                margin-top: 1em;
+
                 & form {
-                    #email {
+                    gap: 1.5rem;
+                    height: auto;
+                     #email {
                         width: 100%;
-                        height: 4.5em;
+                        height: 4em;
                     }
 
                     .email-submit-btn {
                         width: 100%;
-                        height: 4.5em;
+                        height: 4em;
+                    }
+                }
+            }
+        }
+
+        .success {
+            width: 100vw;
+            height: 100vh;
+            border-radius: 0;
+            
+            
+            svg {
+                margin-top: 6rem;
+            }
+
+            h1 {
+                font-size: 45px;
+            }
+            
+            button {
+                margin-top: 30vh;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 602px) and (max-width: 901px){
+    .container {
+        width: 100vw !important;
+        height: 100vh !important;
+
+        .sign-cart {
+            width: 85%;
+            flex-direction: column-reverse;
+            gap: 1.5rem;
+
+            &__main-div {
+                width: 100%;
+                height: 100%;
+                gap: 1.5rem;
+                
+                h1 {
+                    @include fluid-text(60, 40);
+                    margin: 0;
+                }
+
+                #description {
+                    width: 100%;
+                    @include fluid-text(18, 15);
+                }
+
+                &__conditionals-div {
+                    width: 100%;
+
+                    .conditional {
+                        width: 100%;
+                        @include fluid-text(18, 15);
+                    }
+                }
+            }
+            &__form-div {
+                height: 90%;
+
+                & form {
+                    width: 100%;
+
+                    #email {
+                        width: 100%;
+                        height: 4.5rem;
+                    }
+
+                    .email-submit-btn {
+                        width: 100%;
+                        height: 4.5rem;
                     }
                 }
             }

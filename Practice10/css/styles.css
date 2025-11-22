@@ -1,3 +1,11 @@
+@charset "UTF-8";
+:root {
+  --btns-border-radius: 8px;
+  --grey: #949494;
+  --input-height: 3.5rem;
+  --box-sizing: border-box;
+}
+
 .roboto {
   font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
@@ -7,53 +15,120 @@
 
 @media (max-width: 601px) {
   .container {
+    min-width: 100vw !important;
+    min-height: 100vh !important;
+  }
+  .container .sign-cart {
+    min-width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    flex-direction: column-reverse;
+    padding: 0;
+    gap: 0;
+  }
+  .container .sign-cart #main-svg {
+    height: auto;
+  }
+  .container .sign-cart__main-div {
+    width: 100%;
+    padding: 1.5em;
+    height: auto;
+    gap: 1.5rem;
+  }
+  .container .sign-cart__main-div h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 2.0673076923rem + 1.9230769231vw, 3.75rem);
+  }
+  .container .sign-cart__main-div #description {
+    width: 90%;
+    font-size: clamp(0.9375rem, 0.8725961538rem + 0.2884615385vw, 1.125rem);
+  }
+  .container .sign-cart__main-div__conditionals-div {
+    width: 100%;
+  }
+  .container .sign-cart__main-div__conditionals-div .conditional {
+    font-size: clamp(0.9375rem, 0.8293269231rem + 0.4807692308vw, 1.25rem);
+  }
+  .container .sign-cart__form-div {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2em;
+    margin-top: 1em;
+  }
+  .container .sign-cart__form-div form {
+    gap: 1.5rem;
+    height: auto;
+  }
+  .container .sign-cart__form-div form #email {
+    width: 100%;
+    height: 4em;
+  }
+  .container .sign-cart__form-div form .email-submit-btn {
+    width: 100%;
+    height: 4em;
+  }
+  .container .success {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .container .success svg {
+    margin-top: 6rem;
+  }
+  .container .success h1 {
+    font-size: 45px;
+  }
+  .container .success button {
+    margin-top: 30vh;
+  }
+}
+@media (min-width: 602px) and (max-width: 901px) {
+  .container {
     width: 100vw !important;
     height: 100vh !important;
   }
   .container .sign-cart {
-    padding: 0;
-    border-radius: 0;
-    width: 100vw;
-    height: 100%;
+    width: 85%;
     flex-direction: column-reverse;
-    gap: 5%;
-  }
-  .container .sign-cart #main-svg {
-    width: 100%;
+    gap: 1.5rem;
   }
   .container .sign-cart__main-div {
-    flex: 1;
-    height: 60vh;
-    width: 100vw;
-    padding: 0 1.5em;
-    gap: 5%;
+    width: 100%;
+    height: 100%;
+    gap: 1.5rem;
   }
   .container .sign-cart__main-div h1 {
-    font-size: clamp(2.5rem, 2.1754807692rem + 1.4423076923vw, 3.4375rem);
+    font-size: clamp(2.5rem, 2.0673076923rem + 1.9230769231vw, 3.75rem);
     margin: 0;
-    width: 90%;
   }
   .container .sign-cart__main-div #description {
-    width: 90%;
+    width: 100%;
+    font-size: clamp(0.9375rem, 0.8725961538rem + 0.2884615385vw, 1.125rem);
+  }
+  .container .sign-cart__main-div__conditionals-div {
+    width: 100%;
   }
   .container .sign-cart__main-div__conditionals-div .conditional {
-    width: 90%;
+    width: 100%;
+    font-size: clamp(0.9375rem, 0.8725961538rem + 0.2884615385vw, 1.125rem);
   }
   .container .sign-cart__form-div {
-    margin-top: 1rem;
+    height: 90%;
+  }
+  .container .sign-cart__form-div form {
+    width: 100%;
   }
   .container .sign-cart__form-div form #email {
     width: 100%;
-    height: 4.5em;
+    height: 4.5rem;
   }
   .container .sign-cart__form-div form .email-submit-btn {
     width: 100%;
-    height: 4.5em;
+    height: 4.5rem;
   }
 }
 body {
   width: 100vw;
-  height: 100vh;
   margin: 0;
   padding: 0;
   display: flex;
@@ -62,7 +137,8 @@ body {
   background-color: #36384D;
   font-family: "Roboto", sans-serif;
   font-style: normal;
-  box-sizing: border-box;
+  box-sizing: var(--box-sizing);
+  color: #242742;
 }
 
 .success-icon {
@@ -75,8 +151,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 70vw;
-  height: 100vh;
-  box-sizing: border-box;
+  box-sizing: var(--box-sizing);
 }
 
 .sign-cart {
@@ -86,7 +161,7 @@ body {
   padding: 1.5em 2em;
   border-radius: 30px;
   justify-content: space-between;
-  box-sizing: border-box;
+  box-sizing: var(--box-sizing);
   margin: 0;
 }
 .sign-cart #main-svg {
@@ -98,24 +173,20 @@ body {
   display: flex;
   width: 50%;
   align-items: start;
+  justify-content: center;
   flex-direction: column;
   gap: 5%;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: var(--box-sizing);
 }
 .sign-cart__main-div h1 {
   font-size: clamp(1.875rem, 1.4423076923rem + 1.9230769231vw, 3.125rem);
   text-align: start;
-  width: 100%;
-  font-weight: 700;
-  color: #242742;
   margin: 0;
   margin-top: 17%;
 }
 .sign-cart__main-div #description {
   text-align: start;
-  color: #242742;
-  font-weight: 400;
   width: 85%;
   margin: 0;
   font-size: clamp(0.875rem, 0.8317307692rem + 0.1923076923vw, 1rem);
@@ -125,7 +196,7 @@ body {
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  width: 100%;
+  position: relative;
   gap: 0.5em;
 }
 .sign-cart__main-div__conditionals-div .conditional {
@@ -135,19 +206,18 @@ body {
   align-items: start;
   font-size: clamp(0.875rem, 0.8317307692rem + 0.1923076923vw, 1rem);
   justify-content: start;
-  color: #242742;
   gap: 1em;
   margin: 0;
 }
 .sign-cart__form-div {
-  width: 100%;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.5em;
   align-items: start;
   justify-content: center;
   height: 33%;
-  box-sizing: border-box;
+  box-sizing: var(--box-sizing);
 }
 .sign-cart__form-div__commetns-div {
   height: 1.5em;
@@ -156,32 +226,27 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.sign-cart__form-div__commetns-div #email-comment {
-  color: #242742;
-  font-weight: 700;
-}
 .sign-cart__form-div__commetns-div #error-comment {
   color: #FF6155;
-  font-weight: 700;
 }
 .sign-cart__form-div form {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.5em;
-  box-sizing: border-box;
+  height: 100%;
+  box-sizing: var(--box-sizing);
 }
 .sign-cart__form-div form #email {
   width: 90%;
-  height: 4em;
-  border-radius: 8px;
-  border: solid 1px #949494;
+  height: var(--input-height);
+  border-radius: var(--btns-border-radius);
+  border: solid 1px var(--grey);
   outline: none;
   padding-left: 1.5em;
-  box-sizing: border-box;
+  box-sizing: var(--box-sizing);
 }
 .sign-cart__form-div form #email::placeholder {
-  color: #949494;
+  color: var(--grey);
 }
 .sign-cart__form-div form #email:focus::placeholder {
   opacity: 0;
@@ -193,18 +258,93 @@ body {
   align-items: center;
   background-color: #242742;
   border: none;
-  height: 4em;
+  height: var(--input-height);
   width: 90%;
   color: #FFFFFF;
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
   font-size: clamp(0.875rem, 0.8317307692rem + 0.1923076923vw, 1rem);
-  border-radius: 8px;
+  border-radius: var(--btns-border-radius);
   cursor: pointer;
-  box-sizing: border-box;
+  box-sizing: var(--box-sizing);
 }
 .sign-cart__form-div form .email-submit-btn:active {
   background: linear-gradient(to right, #FF6A3A, #FF527B);
+}
+
+.success {
+  display: none;
+  background-color: #FFFFFF;
+  padding: 3em;
+  border-radius: 30px;
+  box-sizing: border-box;
+  width: 500px;
+  height: auto;
+}
+.success svg {
+  position: relative;
+}
+.success h1 {
+  position: relative;
+  font-size: 55px;
+  line-height: 1em;
+}
+.success p {
+  position: relative;
+  line-height: 1.4em;
+  font-size: 16px;
+}
+.success button {
+  position: relative;
+  height: 3.5rem;
+  color: #FFFFFF;
+  background-color: #242742;
+  border: none;
+  border-radius: var(--btns-border-radius);
+  overflow: visible;
+  font-size: 16px;
+}
+.success button:active {
+  background: linear-gradient(to right, #FF6A3A, #FF527B);
+}
+.success button:active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px; /* расстояние под кнопкой */
+  transform: translateX(-50%);
+  width: 100%;
+  height: 15px; /* высота свечения */
+  background: linear-gradient(to right, #FF6A3A, #FF527B);
+  filter: blur(20px); /* супер-мягкое размытие */
+  opacity: 1; /* лёгкое, как на картинке */
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.mb-1 {
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.h-100vh {
+  height: 100vh;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-400 {
+  font-weight: 400;
 }
 
 /*# sourceMappingURL=styles.css.map */
