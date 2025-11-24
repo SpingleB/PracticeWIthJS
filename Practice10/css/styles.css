@@ -169,7 +169,7 @@ body {
   margin: 0;
   opacity: 1;
   transform: scale(1);
-  transition: var(r--slow-transition);
+  transition: var(--slow-transition);
 }
 .sign-cart #main-svg {
   display: block;
