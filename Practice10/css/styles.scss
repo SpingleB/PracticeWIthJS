@@ -28,6 +28,7 @@ body {
 }
 
 .sign-cart {
+    position: absolute;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: row;
@@ -36,6 +37,9 @@ body {
     justify-content: space-between;
     box-sizing: var(--box-sizing);
     margin: 0;
+    opacity: 1;
+    transform: scale(1);
+    transition: var(r--slow-transition);
 
     #main-svg {
         display: block;
@@ -106,7 +110,10 @@ body {
             align-items: center;
 
             #error-comment {
+                opacity: 0;
                 color: #FF6155;
+                transition: var(--error-comment-transition);
+                display: block;
             }
           }
 
@@ -125,6 +132,7 @@ body {
                 outline: none;
                 padding-left: 1.5em;
                 box-sizing: var(--box-sizing);
+                transition: var(--slow-transition);
 
                 &::placeholder {
                     color: var(--grey);
@@ -132,7 +140,7 @@ body {
 
                 &:focus::placeholder {
                     opacity: 0;
-                    transition: 0.3s;
+                    transition: var(--slow-transition);
                 }
             }
 
@@ -151,7 +159,7 @@ body {
                 box-sizing: var(--box-sizing);
 
                 &:active {
-                    background: linear-gradient(to right, #FF6A3A, #FF527B)
+                    background: var(--gradient);
                 }
             }
           }
@@ -159,14 +167,16 @@ body {
 }
 
 .success {
-    display: none;
-    // display: block;
+    position: absolute;
+    // display: none;
     background-color: #FFFFFF;
     padding: 3em;
     border-radius: 30px;
-    box-sizing: border-box;
+    box-sizing: var(--box-sizing);
     width: 500px;
     height: auto;
+    opacity: 0;
+    transform: scale(0.5);
 
     svg {
         position: relative;
@@ -195,20 +205,20 @@ body {
         font-size: 16px;
 
         &:active {
-            background: linear-gradient(to right, #FF6A3A, #FF527B);
+            background: var(--gradient);
         }
 
         &:active::after {
         content: "";
         position: absolute;
         left: 50%;
-        bottom: -10px;    /* расстояние под кнопкой */
+        bottom: -10px;    
         transform: translateX(-50%);
         width: 100%;
-        height: 15px;     /* высота свечения */
-        background: linear-gradient(to right, #FF6A3A, #FF527B);
-        filter: blur(20px);     /* супер-мягкое размытие */
-        opacity: 1;          /* лёгкое, как на картинке */
+        height: 15px;    
+        background: var(--gradient);
+        filter: blur(20px);     
+        opacity: 1;          
         border-radius: 5px;
         pointer-events: none;
         }
@@ -238,4 +248,35 @@ body {
 
 .fw-400 {
     font-weight: 400;
+}
+
+.error-comment-visible {
+    opacity: 1 !important;
+    transition: var(--error-comment-transition);
+}
+
+.input-error {
+    border: 1px solid #FF6155 !important;
+    background-color: #FFE6E6;
+    color: #FF6155;
+    transition: var(--slow-transition);   
+}
+
+.sign-cart-hidden {
+    // display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.success-visible {
+    display: block;        
+    opacity: 1;
+    transform: scale(1);
+    transition: var(--fast-transition);
+}
+
+.signup-scale0 {
+    opacity: 0;
+    transform: scale(0.7);
+    transition: var(--fast-transition);
 }

@@ -3,4 +3,8 @@
     --grey: #949494;
     --input-height: 3.5rem;
     --box-sizing: border-box;
+    --slow-transition: 0.3s ease;
+    --fast-transition: 0.2s ease;
+    --error-comment-transition: opacity 0.3s ease-in-out;
+    --gradient: linear-gradient(to right, #FF6A3A, #FF527B);
 }

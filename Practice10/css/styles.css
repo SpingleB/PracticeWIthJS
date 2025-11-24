@@ -1,9 +1,12 @@
-@charset "UTF-8";
 :root {
   --btns-border-radius: 8px;
   --grey: #949494;
   --input-height: 3.5rem;
   --box-sizing: border-box;
+  --slow-transition: 0.3s ease;
+  --fast-transition: 0.2s ease;
+  --error-comment-transition: opacity 0.3s ease-in-out;
+  --gradient: linear-gradient(to right, #FF6A3A, #FF527B);
 }
 
 .roboto {
@@ -155,6 +158,7 @@ body {
 }
 
 .sign-cart {
+  position: absolute;
   background-color: #FFFFFF;
   display: flex;
   flex-direction: row;
@@ -163,6 +167,9 @@ body {
   justify-content: space-between;
   box-sizing: var(--box-sizing);
   margin: 0;
+  opacity: 1;
+  transform: scale(1);
+  transition: var(r--slow-transition);
 }
 .sign-cart #main-svg {
   display: block;
@@ -227,7 +234,10 @@ body {
   align-items: center;
 }
 .sign-cart__form-div__commetns-div #error-comment {
+  opacity: 0;
   color: #FF6155;
+  transition: var(--error-comment-transition);
+  display: block;
 }
 .sign-cart__form-div form {
   display: flex;
@@ -244,13 +254,14 @@ body {
   outline: none;
   padding-left: 1.5em;
   box-sizing: var(--box-sizing);
+  transition: var(--slow-transition);
 }
 .sign-cart__form-div form #email::placeholder {
   color: var(--grey);
 }
 .sign-cart__form-div form #email:focus::placeholder {
   opacity: 0;
-  transition: 0.3s;
+  transition: var(--slow-transition);
 }
 .sign-cart__form-div form .email-submit-btn {
   display: flex;
@@ -269,17 +280,19 @@ body {
   box-sizing: var(--box-sizing);
 }
 .sign-cart__form-div form .email-submit-btn:active {
-  background: linear-gradient(to right, #FF6A3A, #FF527B);
+  background: var(--gradient);
 }
 
 .success {
-  display: none;
+  position: absolute;
   background-color: #FFFFFF;
   padding: 3em;
   border-radius: 30px;
-  box-sizing: border-box;
+  box-sizing: var(--box-sizing);
   width: 500px;
   height: auto;
+  opacity: 0;
+  transform: scale(0.5);
 }
 .success svg {
   position: relative;
@@ -305,19 +318,19 @@ body {
   font-size: 16px;
 }
 .success button:active {
-  background: linear-gradient(to right, #FF6A3A, #FF527B);
+  background: var(--gradient);
 }
 .success button:active::after {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -10px; /* расстояние под кнопкой */
+  bottom: -10px;
   transform: translateX(-50%);
   width: 100%;
-  height: 15px; /* высота свечения */
-  background: linear-gradient(to right, #FF6A3A, #FF527B);
-  filter: blur(20px); /* супер-мягкое размытие */
-  opacity: 1; /* лёгкое, как на картинке */
+  height: 15px;
+  background: var(--gradient);
+  filter: blur(20px);
+  opacity: 1;
   border-radius: 5px;
   pointer-events: none;
 }
@@ -345,6 +358,36 @@ body {
 
 .fw-400 {
   font-weight: 400;
+}
+
+.error-comment-visible {
+  opacity: 1 !important;
+  transition: var(--error-comment-transition);
+}
+
+.input-error {
+  border: 1px solid #FF6155 !important;
+  background-color: #FFE6E6;
+  color: #FF6155;
+  transition: var(--slow-transition);
+}
+
+.sign-cart-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.success-visible {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+  transition: var(--fast-transition);
+}
+
+.signup-scale0 {
+  opacity: 0;
+  transform: scale(0.7);
+  transition: var(--fast-transition);
 }
 
 /*# sourceMappingURL=styles.css.map */
