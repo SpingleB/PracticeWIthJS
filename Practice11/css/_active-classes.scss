@@ -1,0 +1,33 @@
+.point-active{
+    position: relative;
+}
+
+.point-active::after {
+    content: "";
+    width: 5px;        
+    height: 5px;
+    background: var(--white);
+    border-radius: 50%; 
+    position: absolute; 
+    top: 25%;             
+    right: 0;
+}
+
+.categorie-active {
+    color: var(--white) !important;
+}
+
+.transition-text{
+    opacity: 0;
+}
+
+.rubik-preset-1-mini {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 45px;
+  line-height: 1em;
+  letter-spacing: 0px;
+}
+

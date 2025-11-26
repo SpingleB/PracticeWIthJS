@@ -1,0 +1,89 @@
+.cart-social {
+    height: auto;
+    // overflow: hidden;
+    width: 315px;
+
+    .cart-social__svg-div__social {
+        background-color: var(--purple-700);
+        border-radius: var(--top-div);
+        display: flex;
+        justify-content: end;
+        position: relative;
+        overflow: hidden;
+        height: 70px;
+        z-index: 100;
+
+        svg {
+            position: relative;
+            top: -15px;
+            left: -15px;
+        }
+    }
+
+    &__main {
+        position: relative;
+        @include direction-column-center;
+        background-color: var(--navy-900);
+        padding: 24px;
+        border-radius: var(--main);
+        gap: 5px;
+        z-index: 200;
+        width: 100%;
+        margin-top: -30px;
+        box-sizing: border-box;
+
+        &__header {
+            @include direction-row-center;
+            justify-content: space-between;
+            width: 100%;
+
+            .type {
+                color: var(--white);
+            }
+
+            .others-btn{
+                @include direction-row-center;
+                gap: 8px;
+                background-color: transparent;
+                border: none;
+                width: auto;
+                cursor: pointer;
+
+                .point{
+                    position: relative;
+                }
+
+                .point::after {
+                    content: "";
+                    width: 5px;        
+                    height: 5px;
+                    background: #D8D8D8;
+                    border-radius: var(--circle); 
+                    position: absolute; 
+                    top: 40%;             
+                    right: 0;
+                }
+            }
+        }
+
+        &__footer__social {
+        @include direction-row-center;
+        justify-content: space-between;
+        width: 100%;
+
+            .time {
+                color: var(--white);
+                transition: var(--fast);
+            }
+
+            .last-time{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                color: var(--navy-200);
+                width: 125px;
+                transition: var(--fast);
+            }
+        }
+    }
+}

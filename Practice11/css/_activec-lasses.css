@@ -1,0 +1,14 @@
+.point-active {
+  position: relative;
+}
+
+.point-cative::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--white);
+  border-radius: 50%;
+  position: absolute;
+  top: 25%;
+  right: 0;
+}

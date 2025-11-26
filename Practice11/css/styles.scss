@@ -1,0 +1,41 @@
+@import 'variables';
+@import 'fonts';
+@import 'mixins';
+@import 'active-classes';
+@import 'blocks/play';
+@import 'blocks/study';
+@import 'blocks/work';
+@import 'blocks/exercise';
+@import 'blocks/self-care';
+@import 'blocks/social';
+@import 'blocks/user-info';
+@import 'media';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--navy-950);
+    box-sizing: border-box;
+}
+
+.container {
+    @include direction-column-center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    gap: 25px;
+    max-width: 100vw;
+    width: 100%;
+}
+
+.others-btn:hover {
+    .point::after {
+        background: var(--white);
+    }
+}
+
+.m-1 {
+    margin: 1em 0;
+}
