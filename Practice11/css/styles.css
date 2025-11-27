@@ -18,6 +18,9 @@
   --top-div: 15px 15px 20px 20px;
   --main: 15px;
   --fast: 0.1s ease;
+  --medium: 0.3s ease;
+  --avatar: 0 4px 4px rgba(0, 0, 0, 0.3);
+  --error: 0 2px 6px rgba(255, 76, 76, 0.4);
 }
 
 .rubik-preset-1 {
@@ -85,7 +88,7 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: 15px;
+  font-size: 13px;
   line-height: 18px;
   letter-spacing: 0px;
 }
@@ -121,6 +124,41 @@
   font-size: 45px;
   line-height: 1em;
   letter-spacing: 0px;
+}
+
+.error-modal-window {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--navy-800);
+  color: var(--navy-200);
+  padding: 1em 1.5em;
+  z-index: 99999;
+  border-radius: 10px;
+  bottom: -50px;
+  opacity: 0;
+  transition: var(--medium);
+}
+
+.error-modal-window-active {
+  opacity: 1 !important;
+  bottom: 50px !important;
+  transition: var(--medium);
+}
+
+.error-modal-window-repeat-active {
+  opacity: 1;
+  border: 1px solid #FF4C4C;
+  box-shadow: var(--error);
+  transition: var(--fast);
+  transform: scale(1.5);
+}
+
+.error-modal-window-repeat-hidden {
+  opacity: 0;
+  transition: var(--fast);
+  transform: scale(1.5);
 }
 
 .cart-play {
@@ -841,7 +879,7 @@
     box-sizing: border-box;
   }
   .user-info__header__img-div {
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--avatar);
     margin-bottom: 15px;
   }
   .user-info__header__text-div #user-name {
@@ -966,9 +1004,6 @@
   .cart-self-care__main__footer__self-care {
     flex-direction: column;
     gap: 5px;
-  }
-  .cart-self-care__main__footer__self-care .time {
-    transition: 0.5s;
   }
   .cart-self-care__main__footer__self-care .last-time {
     width: 100%;

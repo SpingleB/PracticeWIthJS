@@ -1,10 +1,12 @@
-const workTimeElement = document.querySelector(`.cart-work__main__footer__work #work-time`);
-const playTimeElement = document.querySelector(`.cart-play__main__footer__play #play-time`);
-const studyTimeElement = document.querySelector(`.cart-study__main__footer__study #study-time`);
-const exerciseTimeElement = document.querySelector(`.cart-exercise__main__footer__exercise #exercise-time`);
-const socialTimeElement = document.querySelector(`.cart-social__main__footer__social #social-time`);
-const selfCareTimeElement = document.querySelector(`.cart-self-care__main__footer__self-care #self-care-time`);
-const userNameElement = document.querySelector(`.user-info__header__text-div #user-name`);
+const timeElementsArr  =  [
+workTimeElement = document.querySelector(`.cart-work__main__footer__work #work-time`),
+playTimeElement = document.querySelector(`.cart-play__main__footer__play #play-time`),
+studyTimeElement = document.querySelector(`.cart-study__main__footer__study #study-time`),
+exerciseTimeElement = document.querySelector(`.cart-exercise__main__footer__exercise #exercise-time`),
+socialTimeElement = document.querySelector(`.cart-social__main__footer__social #social-time`),
+selfCareTimeElement = document.querySelector(`.cart-self-care__main__footer__self-care #self-care-time`),
+userNameElement = document.querySelector(`.user-info__header__text-div #user-name`)
+]
 
 const dailyElement = document.getElementById(`daily`);
 const weeklyElement = document.getElementById(`weekly`);
@@ -70,6 +72,8 @@ if (dailyElement && weeklyElement && monthlyElement) {
   console.log(`Error related to time string styles`);
 }
 
+var hasErrorWindow = false;
+
 document.addEventListener('click', async (e) => {
 
     if (e.target === dailyElement) {
@@ -79,63 +83,92 @@ document.addEventListener('click', async (e) => {
         
         await transitionText();
 
+        try {
+
         let todos = await fetch(`data.json`);
         let response = await todos.json();
 
-        let workTime = response[0].timeframes.daily.current;
-        let playTime = response[1].timeframes.daily.current;
-        let studyTime = response[2].timeframes.daily.current;
-        let exerciceTime = response[3].timeframes.daily.current;
-        let socialTime = response[4].timeframes.daily.current;
-        let selfCareTime = response[5].timeframes.daily.current;
-
-        if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
-          workTimeElement.classList.add(`rubik-preset-1-mini`);
-          workTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
-          playTimeElement.classList.add(`rubik-preset-1-mini`);
-          playTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
-          studyTimeElement.classList.add(`rubik-preset-1-mini`);
-          studyTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
-          exerciseTimeElement.classList.add(`rubik-preset-1-mini`);
-          exerciseTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
-          socialTimeElement.classList.add(`rubik-preset-1-mini`);
-          socialTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
-          selfCareTimeElement.classList.add(`rubik-preset-1-mini`);
-          selfCareTimeElement.classList.remove(`rubik-preset-1`);
+        let timesArr = [
+          workTime = null,
+          playTime = null,
+          studyTime = null,
+          exerciceTime = null,
+          socialTime = null,
+          selfCareTime = null,
+        ];
+        
+        for ( let i = 0; i < 5; i++ ) {
+          timesArr[i] = response[i].timeframes.daily.current;
         }
 
-        workTimeElement.textContent = `${workTime} hrs`;
-        playTimeElement.textContent = `${playTime} hrs`;
-        studyTimeElement.textContent = `${studyTime} hrs`;
-        exerciseTimeElement.textContent = `${exerciceTime} hrs`;
-        socialTimeElement.textContent = `${socialTime} hrs`;
-        selfCareTimeElement.textContent = `${selfCareTime} hrs`;
+        for ( let i = 0; i < 5; i++ ) {
+          timeElementsArr[i].textContent = `${timesArr[i]} hrs`;
+        }
 
-        let workLastActivity = response[0].timeframes.daily.previous;
-        let playLastActivity = response[1].timeframes.daily.previous;
-        let studyLastActivity = response[2].timeframes.daily.previous;
-        let exerciseLastActivity = response[3].timeframes.daily.previous;
-        let socialLastActivity = response[4].timeframes.daily.previous;
-        let selfCareLastActivity = response[5].timeframes.daily.previous;
+        let lastActivitiesArr = [
+          workLastActivity = null,
+          playLastActivity = null,
+          studyLastActivity = null,
+          exerciseLastActivity = null,
+          socialLastActivity = null,
+          selfCareLastActivity = null,
+        ];
 
-        const workLastActivityElement = document.getElementById(`work-last-activity`);
-        const playLastActivityElement = document.getElementById(`play-last-activity`);
-        const studyLastActivityElement = document.getElementById(`study-last-activity`);
-        const exerciseLastActivityElement = document.getElementById(`exercise-last-activity`);
-        const socialLastActivityElement = document.getElementById(`social-last-activity`);
-        const selfCareLastActivityElement = document.getElementById(`self-care-last-activity`);
+        for (let i = 0; i < 5; i++) {
+          lastActivitiesArr[i] = response[i].timeframes.daily.previous;
+        }
 
-        workLastActivityElement.textContent = `Yesterday - ${workLastActivity}hrs`;
-        playLastActivityElement.textContent = `Yesterday - ${playLastActivity}hrs`;
-        studyLastActivityElement.textContent = `Yesterday - ${studyLastActivity}hrs`;
-        exerciseLastActivityElement.textContent = `Yesterday - ${exerciseLastActivity}hrs`;
-        socialLastActivityElement.textContent = `Yesterday - ${socialLastActivity}hrs`;
-        selfCareLastActivityElement.textContent = `Yesterday - ${selfCareLastActivity}hrs`;
+        let lastActivityArrElements = [
+          workLastActivityElement = document.getElementById(`work-last-activity`),
+          playLastActivityElement = document.getElementById(`play-last-activity`),
+          studyLastActivityElement = document.getElementById(`study-last-activity`),
+          exerciseLastActivityElement = document.getElementById(`exercise-last-activity`),
+          socialLastActivityElement = document.getElementById(`social-last-activity`),
+          selfCareLastActivityElement = document.getElementById(`self-care-last-activity`),
+        ];
+
+        for ( let i = 0; i < 5; i++ ) {
+          lastActivityArrElements[i].textContent = `Yesterday - ${lastActivitiesArr[i]}hrs`;
+        }
+
+          const errorWindowElement =
+            document.querySelector(`.error-modal-window`);
+
+          if (hasErrorWindow && errorWindowElement) {
+            errorWindowElement.classList.remove(`error-modal-window-active`);
+            setTimeout(() => {
+              errorWindowElement.classList.remove(`error-modal-window`);
+            }, 300);
+            setTimeout(() => {
+              errorWindowElement.remove();
+            }, 100);
+            hasErrorWindow = false;
+          }  
+
+        } catch (error){
+           const errorWindowElement = document.createElement(`div`);
+          const bodyElement = document.querySelector(`body`);
+
+          if ( hasErrorWindow ) {
+                errorWindowElement.classList.add("error-modal-window-repeat-active");
+            setTimeout(() => {
+                errorWindowElement.classList.add("error-modal-window-repeat-hidden");
+            setTimeout(() => {
+                errorWindowElement.classList.remove("error-modal-window-repeat-active");
+                errorWindowElement.classList.remove("error-modal-window-repeat-hidden");
+              }, 300);
+            }, 300);
+          } else {
+            errorWindowElement.classList.add(`error-modal-window`);
+            setTimeout(() => {
+              errorWindowElement.classList.add(`error-modal-window-active`);
+            }, 300);
+            errorWindowElement.textContent = `Error : ${error}`;
+            bodyElement.append(errorWindowElement);
+            hasErrorWindow = true;
+          }
+        }
+
     }else if(e.target === weeklyElement) {
         e.target.classList.add(`categorie-active`);
         dailyElement.classList.remove(`categorie-active`);
@@ -143,63 +176,134 @@ document.addEventListener('click', async (e) => {
 
         await transitionText();
 
+        try {
+
         let todos = await fetch(`data.json`);
         let response = await todos.json();
+        
+        let timesArr = [
+          workTime = null,
+          playTime = null,
+          studyTime = null,
+          exerciseTime = null,
+          socialTime = null,
+          selfCareTime = null,
+        ];
 
-        let workTime = response[0].timeframes.weekly.current;
-        let playTime = response[1].timeframes.weekly.current;
-        let studyTime = response[2].timeframes.weekly.current;
-        let exerciseTime = response[3].timeframes.weekly.current;
-        let socialTime = response[4].timeframes.weekly.current;
-        let selfCareTime = response[5].timeframes.weekly.current;
-
-        if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
+        for (let i = 0; i < 5; i++) {
+          timesArr[i] = response[i].timeframes.weekly.current;
+        }
+        
+        if ( timesArr[0] > 99 && (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
           workTimeElement.classList.add(`rubik-preset-1-mini`);
           workTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
+        } else {
+          workTimeElement.classList.remove(`rubik-preset-1-mini`);
+          workTimeElement.classList.add(`rubik-preset-1`);
+        }
+        if ( timesArr[1] > 99 && (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
           playTimeElement.classList.add(`rubik-preset-1-mini`);
           playTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
+        } else {
+          playTimeElement.classList.remove(`rubik-preset-1-mini`);
+          playTimeElement.classList.add(`rubik-preset-1`);
+        }
+        if ( timesArr[2] > 99 && (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
           studyTimeElement.classList.add(`rubik-preset-1-mini`);
           studyTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
+        } else {
+          studyTimeElement.classList.remove(`rubik-preset-1-mini`);
+          studyTimeElement.classList.add(`rubik-preset-1`);
+        }
+        if ( timesArr[3] > 99 && (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
           exerciseTimeElement.classList.add(`rubik-preset-1-mini`);
           exerciseTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
+        } else {
+          exerciseTimeElement.classList.remove(`rubik-preset-1-mini`);
+          exerciseTimeElement.classList.add(`rubik-preset-1`);
+        }
+        if ( timesArr[4] > 99 && (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
           socialTimeElement.classList.add(`rubik-preset-1-mini`);
           socialTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
+        } else{
+          socialTimeElement.classList.remove(`rubik-preset-1-mini`);
+          socialTimeElement.classList.add(`rubik-preset-1`);
+        }
+          if ( timesArr[5] > 99 && (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
           selfCareTimeElement.classList.add(`rubik-preset-1-mini`);
           selfCareTimeElement.classList.remove(`rubik-preset-1`);
+        } else {
+          selfCareTimeElement.classList.remove(`rubik-preset-1-mini`);
+          selfCareTimeElement.classList.add(`rubik-preset-1`);
         }
 
-        workTimeElement.textContent = `${workTime}hrs`;
-        playTimeElement.textContent = `${playTime}hrs`;
-        studyTimeElement.textContent = `${studyTime}hrs`;
-        exerciseTimeElement.textContent = `${exerciseTime}hrs`;
-        socialTimeElement.textContent = `${socialTime}hrs`;
-        selfCareTimeElement.textContent = `${selfCareTime}hrs`;
+        for (let i = 0; i < 5; i++) {
+          timeElementsArr[i].textContent = `${timesArr[i]} hrs`;
+        }
 
-        let workLastActivity = response[0].timeframes.weekly.previous;
-        let playyLastActivity = response[1].timeframes.weekly.previous;
-        let studyLastActivity = response[2].timeframes.weekly.previous;
-        let exerciseLastActivity = response[3].timeframes.weekly.previous;
-        let socialLastActivity = response[4].timeframes.weekly.previous;
-        let selfCareLastActivity = response[5].timeframes.weekly.previous;
+        let lastActivitiesArr = [
+        workLastActivity = null,
+        playyLastActivity = null,
+        studyLastActivity = null,
+        exerciseLastActivity = null,
+        socialLastActivity = null,
+        selfCareLastActivity = null,
+        ]
 
-        const workLastActivityElement = document.getElementById(`work-last-activity`);
-        const playLastActivityElement = document.getElementById(`play-last-activity`);
-        const studyLastActivityElement = document.getElementById(`study-last-activity`);
-        const exerciseLastActivityElement = document.getElementById(`exercise-last-activity`);
-        const socialLastActivityElement = document.getElementById(`social-last-activity`);
-        const selfCareLastActivityElement = document.getElementById(`self-care-last-activity`);
+        for(let i = 0; i < 5; i++) {
+          lastActivitiesArr[i] = response[i].timeframes.weekly.previous;
+        }
+        
+        let lastActivitiesElementsArr = [
+        workLastActivityElement = document.getElementById(`work-last-activity`),
+        playLastActivityElement = document.getElementById(`play-last-activity`),
+        studyLastActivityElement = document.getElementById(`study-last-activity`),
+        exerciseLastActivityElement = document.getElementById(`exercise-last-activity`),
+        socialLastActivityElement = document.getElementById(`social-last-activity`),
+        selfCareLastActivityElement = document.getElementById(`self-care-last-activity`),
+        ]
 
-        workLastActivityElement.textContent = `Last Week - ${workLastActivity}hrs`;
-        playLastActivityElement.textContent = `Last Week - ${playyLastActivity}hrs`;
-        studyLastActivityElement.textContent = `Last Week - ${studyLastActivity}hrs`;
-        exerciseLastActivityElement.textContent = `Last Week - ${exerciseLastActivity}hrs`;
-        socialLastActivityElement.textContent = `Last Week - ${socialLastActivity}hrs`;
-        selfCareLastActivityElement.textContent = `Last Week - ${selfCareLastActivity}hrs`;
+        for (let i = 0; i < 5; i++){
+          lastActivitiesElementsArr[i].textContent = `Last Week - ${lastActivitiesArr[i]}hrs`;
+        }
+        
+          const errorWindowElement = document.querySelector(`.error-modal-window`);
+
+          if ( hasErrorWindow && errorWindowElement ) {
+            errorWindowElement.classList.remove(`error-modal-window-active`);
+            setTimeout(() => {
+              errorWindowElement.classList.remove(`error-modal-window`);
+            }, 300);
+            setTimeout(() => {
+              errorWindowElement.remove();
+            }, 100);
+            hasErrorWindow = false;
+          } 
+
+        } catch( error ) {
+          const errorWindowElement = document.createElement(`div`);
+          const bodyElement = document.querySelector(`body`);
+
+          if ( hasErrorWindow ) {
+                errorWindowElement.classList.add("error-modal-window-repeat-active");
+            setTimeout(() => {
+                errorWindowElement.classList.add("error-modal-window-repeat-hidden");
+            setTimeout(() => {
+                errorWindowElement.classList.remove("error-modal-window-repeat-active");
+                errorWindowElement.classList.remove("error-modal-window-repeat-hidden");
+              }, 300);
+            }, 300);
+          } else {
+            errorWindowElement.classList.add(`error-modal-window`);
+            setTimeout(() => {
+              errorWindowElement.classList.add(`error-modal-window-active`);
+            }, 300);
+            errorWindowElement.textContent = `Error : ${error}`;
+            bodyElement.append(errorWindowElement);
+            hasErrorWindow = true;
+          }
+        }
+
     }else if (e.target === monthlyElement) {
         e.target.classList.add(`categorie-active`);
         dailyElement.classList.remove(`categorie-active`);
@@ -207,65 +311,133 @@ document.addEventListener('click', async (e) => {
 
         await transitionText();
 
+        try{
         let todos = await fetch(`data.json`);
         let response = await todos.json();
 
-        let workTime = response[0].timeframes.monthly.current;
-        let playTime = response[1].timeframes.monthly.current;
-        let studyTime = response[2].timeframes.monthly.current;
-        let exerciseTime = response[3].timeframes.monthly.current;
-        let socialTime = response[4].timeframes.monthly.current;
-        let selfCareTime = response[5].timeframes.monthly.current;
+        let timesArr = [
+          workTime = null,
+          playTime = null,
+          studyTime = null,
+          exerciseTime = null,
+          socialTime = null,
+          selfCareTime = null,
+        ];
 
-        if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
-          workTimeElement.classList.add(`rubik-preset-1-mini`);
-          workTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
-          playTimeElement.classList.add(`rubik-preset-1-mini`);
-          playTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
-          studyTimeElement.classList.add(`rubik-preset-1-mini`);
-          studyTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
-          exerciseTimeElement.classList.add(`rubik-preset-1-mini`);
-          exerciseTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
-          socialTimeElement.classList.add(`rubik-preset-1-mini`);
-          socialTimeElement.classList.remove(`rubik-preset-1`);
-        } else if ( workTime > 99 || (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
-          selfCareTimeElement.classList.add(`rubik-preset-1-mini`);
-          selfCareTimeElement.classList.remove(`rubik-preset-1`);
+        for( let i = 0; i < 5; i++) {
+          timesArr[i] = response[i].timeframes.monthly.current;
         }
 
+        if ( timesArr[0] > 99 && (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
+          workTimeElement.classList.add(`rubik-preset-1-mini`);
+          workTimeElement.classList.remove(`rubik-preset-1`);
+        } else {
+          workTimeElement.classList.remove(`rubik-preset-1-mini`);
+          workTimeElement.classList.add(`rubik-preset-1`);
+        }
+        if ( timesArr[1] > 99 && (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
+          playTimeElement.classList.add(`rubik-preset-1-mini`);
+          playTimeElement.classList.remove(`rubik-preset-1`);
+        } else {
+          playTimeElement.classList.remove(`rubik-preset-1-mini`);
+          playTimeElement.classList.add(`rubik-preset-1`);
+        }
+        if ( timesArr[2] > 99 && (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
+          studyTimeElement.classList.add(`rubik-preset-1-mini`);
+          studyTimeElement.classList.remove(`rubik-preset-1`);
+        } else {
+          studyTimeElement.classList.remove(`rubik-preset-1-mini`);
+          studyTimeElement.classList.add(`rubik-preset-1`);
+        }
+        if ( timesArr[3] > 99 && (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
+          exerciseTimeElement.classList.add(`rubik-preset-1-mini`);
+          exerciseTimeElement.classList.remove(`rubik-preset-1`);
+        } else {
+          exerciseTimeElement.classList.remove(`rubik-preset-1-mini`);
+          exerciseTimeElement.classList.add(`rubik-preset-1`);
+        }
+        if ( timesArr[4] > 99 && (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
+          socialTimeElement.classList.add(`rubik-preset-1-mini`);
+          socialTimeElement.classList.remove(`rubik-preset-1`);
+        } else{
+          socialTimeElement.classList.remove(`rubik-preset-1-mini`);
+          socialTimeElement.classList.add(`rubik-preset-1`);
+        }
+          if ( timesArr[5] > 99 && (window.innerWidth <= 1200 && window.innerWidth >= 601) ) {
+          selfCareTimeElement.classList.add(`rubik-preset-1-mini`);
+          selfCareTimeElement.classList.remove(`rubik-preset-1`);
+        } else {
+          selfCareTimeElement.classList.remove(`rubik-preset-1-mini`);
+          selfCareTimeElement.classList.add(`rubik-preset-1`);
+        }
+
+        for(let i = 0; i < 5; i++) {
+          timeElementsArr[i].textContent = `${timesArr[i]} hrs`;
+        }
+
+        let lastActivitiesArr = [
+          workLastActivity = null,
+          playyLastActivity = null,
+          studyLastActivity = null,
+          exerciseLastActivity = null,
+          socialLastActivity = null,
+          selfCareLastActivity = null,
+        ];
         
+        for(let i = 0; i < 5; i++) {
+          lastActivitiesArr[i] = response[i].timeframes.monthly.previous;
+        }
 
-        workTimeElement.textContent = `${workTime} hrs`;
-        playTimeElement.textContent = `${playTime} hrs`;
-        studyTimeElement.textContent = `${studyTime} hrs`;
-        exerciseTimeElement.textContent = `${exerciseTime} hrs`;
-        socialTimeElement.textContent = `${socialTime} hrs`;
-        selfCareTimeElement.textContent = `${selfCareTime} hrs`;
+        let lastActivityArrElements = [
+        workLastActivityElement = document.getElementById(`work-last-activity`),
+        playLastActivityElement = document.getElementById(`play-last-activity`),
+        studyLastActivityElement = document.getElementById(`study-last-activity`),
+        exerciseLastActivityElement = document.getElementById(`exercise-last-activity`),
+        socialLastActivityElement = document.getElementById(`social-last-activity`),
+        selfCareLastActivityElement = document.getElementById(`self-care-last-activity`),
+        ];
 
-        let workLastActivity = response[0].timeframes.monthly.previous;
-        let playyLastActivity = response[1].timeframes.monthly.previous;
-        let studyLastActivity = response[2].timeframes.monthly.previous;
-        let exerciseLastActivity = response[3].timeframes.monthly.previous;
-        let socialLastActivity = response[4].timeframes.monthly.previous;
-        let selfCareLastActivity = response[5].timeframes.monthly.previous;
+        for (let i = 0; i < 5; i++) {
+          lastActivityArrElements[i].textContent = `Last Month - ${lastActivitiesArr[i]}hrs`;
+        }
 
-        const workLastActivityElement = document.getElementById(`work-last-activity`);
-        const playLastActivityElement = document.getElementById(`play-last-activity`);
-        const studyLastActivityElement = document.getElementById(`study-last-activity`);
-        const exerciseLastActivityElement = document.getElementById(`exercise-last-activity`);
-        const socialLastActivityElement = document.getElementById(`social-last-activity`);
-        const selfCareLastActivityElement = document.getElementById(`self-care-last-activity`);
+        const errorWindowElement =
+          document.querySelector(`.error-modal-window`);
 
-        workLastActivityElement.textContent = `Last Month - ${workLastActivity}hrs`;
-        playLastActivityElement.textContent = `Last Month - ${playyLastActivity}hrs`;
-        studyLastActivityElement.textContent = `Last Month - ${studyLastActivity}hrs`;
-        exerciseLastActivityElement.textContent = `Last Month - ${exerciseLastActivity}hrs`;
-        socialLastActivityElement.textContent = `Last Month - ${socialLastActivity}hrs`;
-        selfCareLastActivityElement.textContent = `Last Month - ${selfCareLastActivity}hrs`;
+        if (hasErrorWindow && errorWindowElement) {
+          errorWindowElement.classList.remove(`error-modal-window-active`);
+          setTimeout(() => {
+            errorWindowElement.classList.remove(`error-modal-window`);
+          }, 300);
+          setTimeout(() => {
+            errorWindowElement.remove();
+          }, 100);
+          hasErrorWindow = false;
+        } 
+        
+        } catch ( error ) {
+          const errorWindowElement = document.createElement(`div`);
+          const bodyElement = document.querySelector(`body`);
+
+          if ( hasErrorWindow ) {
+                errorWindowElement.classList.add("error-modal-window-repeat-active");
+            setTimeout(() => {
+                errorWindowElement.classList.add("error-modal-window-repeat-hidden");
+            setTimeout(() => {
+                errorWindowElement.classList.remove("error-modal-window-repeat-active");
+                errorWindowElement.classList.remove("error-modal-window-repeat-hidden");
+              }, 300);
+            }, 300);
+          } else {
+            errorWindowElement.classList.add(`error-modal-window`);
+            setTimeout(() => {
+              errorWindowElement.classList.add(`error-modal-window-active`);
+            }, 300);
+            errorWindowElement.textContent = `Error : ${error}`;
+            bodyElement.append(errorWindowElement);
+            hasErrorWindow = true;
+          }
+        }
     }
 })
 

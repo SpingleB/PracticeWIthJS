@@ -140,7 +140,7 @@
         flex-direction: column;
         box-sizing: border-box;
         &__img-div {
-            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--avatar);
             margin-bottom: 15px;
         }
 
@@ -287,10 +287,6 @@
         &__footer__self-care {
             flex-direction: column;
             gap: 5px;
-
-            .time {
-                transition: 0.5s;
-            }
 
             .last-time {
                 width: 100%;

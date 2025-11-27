@@ -31,3 +31,35 @@
   letter-spacing: 0px;
 }
 
+.error-modal-window {
+    position: fixed;
+    @include flex-center;
+    background-color: var(--navy-800);
+    color: var(--navy-200);
+    padding: 1em 1.5em;
+    z-index: 99999;
+    border-radius: 10px;
+    bottom: -50px;
+    opacity: 0;
+    transition: var(--medium);
+}
+
+.error-modal-window-active {
+    opacity: 1 !important;
+    bottom: 50px !important;
+    transition: var(--medium);
+}
+
+.error-modal-window-repeat-active {
+    opacity: 1;
+    border: 1px solid #FF4C4C;
+    box-shadow: var(--error);
+    transition: var(--fast);
+    transform: scale(1.5);
+}
+
+.error-modal-window-repeat-hidden {
+    opacity: 0;
+    transition: var(--fast);
+    transform: scale(1.5);
+}
