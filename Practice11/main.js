@@ -97,11 +97,11 @@ document.addEventListener('click', async (e) => {
           selfCareTime = null,
         ];
         
-        for ( let i = 0; i < 5; i++ ) {
+        for ( let i = 0; i < 6; i++ ) {
           timesArr[i] = response[i].timeframes.daily.current;
         }
 
-        for ( let i = 0; i < 5; i++ ) {
+        for ( let i = 0; i < 6; i++ ) {
           timeElementsArr[i].textContent = `${timesArr[i]} hrs`;
         }
 
@@ -114,7 +114,7 @@ document.addEventListener('click', async (e) => {
           selfCareLastActivity = null,
         ];
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
           lastActivitiesArr[i] = response[i].timeframes.daily.previous;
         }
 
@@ -127,7 +127,7 @@ document.addEventListener('click', async (e) => {
           selfCareLastActivityElement = document.getElementById(`self-care-last-activity`),
         ];
 
-        for ( let i = 0; i < 5; i++ ) {
+        for ( let i = 0; i < 6; i++ ) {
           lastActivityArrElements[i].textContent = `Yesterday - ${lastActivitiesArr[i]}hrs`;
         }
 
@@ -190,7 +190,7 @@ document.addEventListener('click', async (e) => {
           selfCareTime = null,
         ];
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
           timesArr[i] = response[i].timeframes.weekly.current;
         }
         
@@ -237,7 +237,7 @@ document.addEventListener('click', async (e) => {
           selfCareTimeElement.classList.add(`rubik-preset-1`);
         }
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
           timeElementsArr[i].textContent = `${timesArr[i]} hrs`;
         }
 
@@ -250,7 +250,7 @@ document.addEventListener('click', async (e) => {
         selfCareLastActivity = null,
         ]
 
-        for(let i = 0; i < 5; i++) {
+        for(let i = 0; i < 6; i++) {
           lastActivitiesArr[i] = response[i].timeframes.weekly.previous;
         }
         
@@ -263,7 +263,7 @@ document.addEventListener('click', async (e) => {
         selfCareLastActivityElement = document.getElementById(`self-care-last-activity`),
         ]
 
-        for (let i = 0; i < 5; i++){
+        for (let i = 0; i < 6; i++){
           lastActivitiesElementsArr[i].textContent = `Last Week - ${lastActivitiesArr[i]}hrs`;
         }
         
@@ -324,7 +324,7 @@ document.addEventListener('click', async (e) => {
           selfCareTime = null,
         ];
 
-        for( let i = 0; i < 5; i++) {
+        for( let i = 0; i < 6; i++) {
           timesArr[i] = response[i].timeframes.monthly.current;
         }
 
@@ -371,7 +371,7 @@ document.addEventListener('click', async (e) => {
           selfCareTimeElement.classList.add(`rubik-preset-1`);
         }
 
-        for(let i = 0; i < 5; i++) {
+        for(let i = 0; i < 6; i++) {
           timeElementsArr[i].textContent = `${timesArr[i]} hrs`;
         }
 
@@ -384,7 +384,7 @@ document.addEventListener('click', async (e) => {
           selfCareLastActivity = null,
         ];
         
-        for(let i = 0; i < 5; i++) {
+        for(let i = 0; i < 6; i++) {
           lastActivitiesArr[i] = response[i].timeframes.monthly.previous;
         }
 
@@ -397,7 +397,7 @@ document.addEventListener('click', async (e) => {
         selfCareLastActivityElement = document.getElementById(`self-care-last-activity`),
         ];
 
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
           lastActivityArrElements[i].textContent = `Last Month - ${lastActivitiesArr[i]}hrs`;
         }
 
