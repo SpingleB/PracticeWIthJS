@@ -1,0 +1,27 @@
+@media (min-width: 601px) and (max-width: 901px) {
+  .main {
+    width: 600px !important;
+    padding: 40px 60px !important;
+    border-radius: var(--main-redius-full) !important;
+    margin-bottom: 75px;
+  }
+  .main .calc .tip-field .tips-div .tip {
+    width: 148px;
+  }
+  .main .result {
+    padding: 45px 45px;
+  }
+}
+@media (min-width: 902px) {
+  .main {
+    width: auto !important;
+    padding: 40px 60px !important;
+    border-radius: var(--main-redius-full) !important;
+  }
+  .main .calc .tip-field .tips-div .tip {
+    width: 148px;
+  }
+  .main .result {
+    padding: 45px 45px;
+  }
+}

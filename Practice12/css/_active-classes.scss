@@ -1,0 +1,19 @@
+.tip-active {
+    background-color: var(--green-400) !important;
+    color: var(--green-900) !important;
+    transition: var(--fast);
+}
+
+.mb-24 {
+    margin-bottom: 15px;
+}
+
+.error-border {
+    border: var(--input-error-border);
+}
+
+.disabled {
+    background-color: var(--green-750) !important;
+    pointer-events: none;
+    color: var(--green-800);
+}
