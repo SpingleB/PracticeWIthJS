@@ -74,6 +74,9 @@
   --fast: 0.2s ease;
   --input-border: 2px solid var(--green-400);
   --input-error-border: 2px solid var(--orange-400);
+  --main-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  --tip-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  --reset-btn-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .tip-active {
@@ -175,7 +178,7 @@ body {
   height: auto;
   padding: 24px 24px;
   box-sizing: border-box;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--main-shadow);
 }
 
 .calc {
@@ -286,7 +289,7 @@ body {
 }
 .calc .first-half .tip-field .tips-div .tip:focus {
   outline: none;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--tip-shadow);
 }
 .calc .first-half .tip-field .tips-div #custom-tip {
   text-align: center;
@@ -311,7 +314,7 @@ body {
 }
 .calc .first-half .tip-field .tips-div #custom-tip:focus {
   outline: none;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--tip-shadow);
 }
 .calc .first-half .people-field {
   border: none;
@@ -364,6 +367,7 @@ body {
 }
 .calc .first-half .people-field .people-div #people:focus {
   border: var(--input-border);
+  outline: none;
 }
 .calc .first-half .people-field .people-div #people:focus::placeholder {
   color: transparent;
@@ -456,5 +460,5 @@ body {
 }
 .second-half .result .reset-btn:focus {
   outline: none;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--reset-btn-shadow);
 }

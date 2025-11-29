@@ -26,7 +26,7 @@ body {
     height: auto;
     padding: 24px 24px;
     box-sizing: border-box;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: var(--main-shadow);
 }
 
 .calc {
@@ -135,7 +135,7 @@ body {
 
                 &:focus {
                     outline: none;
-                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+                    box-shadow: var(--tip-shadow);
                 }
             }
 
@@ -165,7 +165,7 @@ body {
 
                 &:focus {
                     outline: none;
-                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+                    box-shadow: var(--tip-shadow);
                 }
             }
         }
@@ -217,6 +217,7 @@ body {
 
                 &:focus {   
                     border: var(--input-border);
+                    outline: none;
                 }
 
                 &:focus::placeholder {   
@@ -311,7 +312,7 @@ body {
 
         &:focus {
             outline: none;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--reset-btn-shadow);
         }
     }
 } 
