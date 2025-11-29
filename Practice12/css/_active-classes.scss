@@ -17,3 +17,11 @@
     pointer-events: none;
     color: var(--green-800);
 }
+
+.custom-tip-error{
+    background-color: #FFE5E5 !important;
+}
+
+.custom-tip-error::placeholder {
+    color: #D9534F;
+}

@@ -32,8 +32,23 @@ function tipColor (arr) {
 function inputEventForCustom() {
     const custom = document.getElementById(`custom-tip`);
     custom.addEventListener(`input`, (e) => {
-      percent = custom.value.trim();
+      percent = Number( custom.value.trim() );
+      console.log(percent);
     });
+}
+
+function validateCustomPrecent ( percent, tip ) {
+  if ( percent > 100 ) {
+    tip.classList.add(`custom-tip-error`);
+    tip.value = ``;
+    tip.placeholder = `max 100%`;
+  } else {
+    tip.classList.remove(`custom-tip-error`);
+    tip.value = ``;
+    tip.placeholder = `Custom`;
+  }
+
+  return percent;
 }
 
 async function tipRecolor(arr) {
@@ -115,7 +130,6 @@ disableBtn();
 blur();
 tipRecolor(tipButtonsElements);
 
-
 function validateMoney( money ) {
     const moneyErrorMessageElement = document.getElementById(`money-error`);
     const moneyInput = document.getElementById(`bill-input`);
@@ -180,6 +194,8 @@ function showResult () {
 
     moneyErrorMessageElement.textContent = moneyErrorMessage;
     peopleErrorMessageElement.textContent = peopleErrorMessage;
+
+    percent = validateCustomPrecent( percent, customPercentElement );
 
     if ( !moneyErrorMessage && !peopleErrorMessage ) {
         result = money * (percent / 100);
