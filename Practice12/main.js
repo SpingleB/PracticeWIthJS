@@ -1,5 +1,6 @@
 const tipButtonsElements = document.querySelectorAll(`.tip`);
 const resetButtonElement = document.getElementById(`reset-btn`);
+const customPercentElement = document.getElementById(`custom-tip`);
 resetButtonElement.classList.add(`disabled`);
 
 var percent = null;
@@ -91,6 +92,24 @@ async function blur () {
     })
 }
 
+function clearValues () {
+  let values = [
+    document.getElementById(`bill-input`),
+    document.getElementById(`people`),
+    document.getElementById(`tip-result`),
+    document.getElementById(`total-result`),
+    document.getElementById(`custom-tip`),
+  ];
+
+  values.forEach ( (value) => {
+    value.value = ``;
+    value.textContent = `$0.00`;
+    value.value.trim();
+  })
+}
+
+resetButtonElement.addEventListener(`click`, clearValues);
+
 inputEventForCustom();
 disableBtn();
 blur();
@@ -170,6 +189,10 @@ function showResult () {
     tipAmountElement.textContent = `$${ checkRemainder ( percentFromAmount ) }`;
     totalAmuontElement.textContent = `$${ checkRemainder ( result ) }`;
 }
+
+customPercentElement.addEventListener(`blur`, (e) => {
+  form.requestSubmit();
+})
 
 form.addEventListener(`submit`, (e) => {
     e.preventDefault();
