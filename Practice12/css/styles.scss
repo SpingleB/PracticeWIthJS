@@ -47,12 +47,12 @@ body {
             width: 100%;
 
             #bill-label {
-            width: 100%;
             color: var(--grey-500);
             } 
             
             span {
                 color: var(--orange-400);
+                transition: var(--fast);
             }
         }
 
@@ -78,6 +78,7 @@ body {
                 margin-right: 15px;
                 padding: 5px 15px;
                 outline: none;
+                caret-color: var(--grey-600);
                 border-radius: var(--input-radius);
 
                 &:focus {   
@@ -124,11 +125,18 @@ body {
                 width: 45%;
                 height: 48px;
                 cursor: pointer;
+                transition: var(--fast);
 
                 &:active {
                     background-color: var(--green-200);
                     color: var(--green-900);
+                    transform: scale(1.1);
                     }
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+                }
             }
 
             #custom-tip {
@@ -136,6 +144,8 @@ body {
                 background-color: transparent;
                 color: var(--grey-550);
                 outline: none;
+                caret-color: var(--grey-600);
+                transition: var(--fast);
 
                 &:focus::placeholder {
                     color: transparent;
@@ -147,6 +157,15 @@ body {
                 &[type = number]::-webkit-inner-spin-button, &[type=number]::-webkit-outer-spin-button{
                     -webkit-appearance: none;        
                     margin: 0;
+                }
+
+                &:active {
+                    transform: scale(1.1);
+                }
+
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
                 }
             }
         }
@@ -167,6 +186,7 @@ body {
             
             span {
                 color: var(--orange-400);
+                transition: var(--fast);
             }
         }
 
@@ -192,6 +212,7 @@ body {
                 margin-right: 15px;
                 padding: 5px 15px;
                 outline: none;
+                caret-color: var(--grey-600);
                 border-radius: var(--input-radius);
 
                 &:focus {   
@@ -247,6 +268,7 @@ body {
 
         #tip-result {
             color: var(--green-400);
+            transition: var(--fast);
         }
     }
 
@@ -268,6 +290,7 @@ body {
 
         #total-result {
             color: var(--green-400);
+            transition: var(--fast);
         }
     }
 
@@ -283,6 +306,12 @@ body {
 
         &:active {
             background-color: var(--green-200);
+            transform: scale(1.1);
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
         }
     }
 } 

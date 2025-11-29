@@ -9,7 +9,7 @@
 }
 
 .error-border {
-    border: var(--input-error-border);
+    border: var(--input-error-border) !important;
 }
 
 .disabled {

@@ -87,7 +87,7 @@
 }
 
 .error-border {
-  border: var(--input-error-border);
+  border: var(--input-error-border) !important;
 }
 
 .disabled {
@@ -203,11 +203,11 @@ body {
   width: 100%;
 }
 .calc .first-half .bill-field .comment-box #bill-label {
-  width: 100%;
   color: var(--grey-500);
 }
 .calc .first-half .bill-field .comment-box span {
   color: var(--orange-400);
+  transition: var(--fast);
 }
 .calc .first-half .bill-field .bill-div {
   position: relative;
@@ -234,6 +234,7 @@ body {
   margin-right: 15px;
   padding: 5px 15px;
   outline: none;
+  caret-color: var(--grey-600);
   border-radius: var(--input-radius);
 }
 .calc .first-half .bill-field .bill-div #bill-input:focus {
@@ -276,16 +277,24 @@ body {
   width: 45%;
   height: 48px;
   cursor: pointer;
+  transition: var(--fast);
 }
 .calc .first-half .tip-field .tips-div .tip:active {
   background-color: var(--green-200);
   color: var(--green-900);
+  transform: scale(1.1);
+}
+.calc .first-half .tip-field .tips-div .tip:focus {
+  outline: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 .calc .first-half .tip-field .tips-div #custom-tip {
   text-align: center;
   background-color: transparent;
   color: var(--grey-550);
   outline: none;
+  caret-color: var(--grey-600);
+  transition: var(--fast);
 }
 .calc .first-half .tip-field .tips-div #custom-tip:focus::placeholder {
   color: transparent;
@@ -296,6 +305,13 @@ body {
 .calc .first-half .tip-field .tips-div #custom-tip[type=number]::-webkit-inner-spin-button, .calc .first-half .tip-field .tips-div #custom-tip[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+.calc .first-half .tip-field .tips-div #custom-tip:active {
+  transform: scale(1.1);
+}
+.calc .first-half .tip-field .tips-div #custom-tip:focus {
+  outline: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 .calc .first-half .people-field {
   border: none;
@@ -316,6 +332,7 @@ body {
 }
 .calc .first-half .people-field .comment-box span {
   color: var(--orange-400);
+  transition: var(--fast);
 }
 .calc .first-half .people-field .people-div {
   position: relative;
@@ -342,6 +359,7 @@ body {
   margin-right: 15px;
   padding: 5px 15px;
   outline: none;
+  caret-color: var(--grey-600);
   border-radius: var(--input-radius);
 }
 .calc .first-half .people-field .people-div #people:focus {
@@ -398,6 +416,7 @@ body {
 }
 .second-half .result .tip-box #tip-result {
   color: var(--green-400);
+  transition: var(--fast);
 }
 .second-half .result .total-box {
   display: flex;
@@ -419,6 +438,7 @@ body {
 }
 .second-half .result .total-box #total-result {
   color: var(--green-400);
+  transition: var(--fast);
 }
 .second-half .result .reset-btn {
   border: none;
@@ -432,4 +452,9 @@ body {
 }
 .second-half .result .reset-btn:active {
   background-color: var(--green-200);
+  transform: scale(1.1);
+}
+.second-half .result .reset-btn:focus {
+  outline: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
