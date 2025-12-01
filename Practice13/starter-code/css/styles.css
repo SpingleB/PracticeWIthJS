@@ -1,0 +1,324 @@
+.jetbrains-preset-1 {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 2rem;
+  line-height: 2.625rem;
+  letter-spacing: 0px;
+}
+
+.jetbrains-preset-2 {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0px;
+}
+
+.jetbrains-preset-3 {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  letter-spacing: 0px;
+}
+
+.jetbrains-preset-4 {
+  font-family: "JetBrains Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  letter-spacing: 0px;
+}
+
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --grey-950: #08070B;
+  --grey-900: #14131B;
+  --grey-850: #18171F;
+  --grey-800: #24232C;
+  --grey-700: #54535B;
+  --grey-600: #817D92;
+  --grey-200: #E6E5EA;
+  --green-200: #A4FFAF;
+  --yellow-300: #F8CD65;
+  --orange-400: #FB7C58;
+  --red-500: #F64A4A;
+  --gradient-1: linear-gradient(to right, #14131B, #08070B);
+  --fast: 0.1s ease-in;
+  --medium: 0.3s ease;
+}
+
+.pass-active {
+  color: var(--grey-200) !important;
+  transition: var(--fast);
+}
+
+.copy-active path {
+  fill: var(--grey-200);
+  transition: var(--fast);
+}
+
+.strength-div-active {
+  background-color: var(--yellow-300);
+  border: 2px solid var(--yellow-300) !important;
+}
+
+.word-active {
+  transition: var(--fast) !important;
+  opacity: 1 !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: var(--gradient-1);
+}
+
+.password-generator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  background-color: transparent;
+  margin-top: 20%;
+  gap: 15px;
+  padding: 0 20px;
+}
+
+legend {
+  color: var(--grey-600);
+  font-weight: 600;
+}
+
+.show-pass {
+  position: relative;
+  background-color: var(--grey-800);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 15px;
+  box-sizing: border-box;
+}
+.show-pass h1 {
+  color: var(--grey-700);
+  cursor: text;
+  transition: var(--fast);
+}
+.show-pass #copied {
+  position: absolute;
+  color: var(--green-200);
+  opacity: 0;
+  right: 45px;
+  transition: var(--fast);
+}
+.show-pass svg {
+  cursor: pointer;
+  transition: var(--fast);
+}
+.show-pass svg:active path {
+  fill: var(--grey-200);
+  transition: var(--fast);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  background-color: var(--grey-800);
+  padding: 20px 20px;
+  border: none;
+  gap: 15px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.length-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.length-div label {
+  color: var(--grey-200);
+}
+.length-div span {
+  color: var(--green-200);
+  font-weight: 700;
+}
+
+#range {
+  width: 100%;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  background: var(--grey-850);
+  border-radius: 0;
+  border: none;
+  outline: none;
+  margin-bottom: 20px;
+  cursor: grab;
+}
+#range::-webkit-slider-thumb:active {
+  border: 2px solid var(--green-200);
+  background-color: var(--grey-850);
+  cursor: grabbing;
+}
+#range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 30px;
+  width: 30px;
+  background: var(--grey-200);
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -11px;
+}
+#range::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 0px;
+}
+#range::-moz-range-thumb {
+  height: 30px;
+  width: 30px;
+  background: var(--grey-850);
+  border-radius: 0;
+  cursor: pointer;
+}
+#range::-moz-range-track {
+  height: 8px;
+  background: var(--grey-850);
+  border-radius: 0;
+}
+#range::-moz-range-progress {
+  height: 8px;
+  background: var(--green-200);
+  border-radius: 0;
+}
+
+.checkboxes {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  gap: 20px;
+}
+.checkboxes .label {
+  position: relative;
+  margin-left: 35px;
+  color: var(--grey-200);
+}
+.checkboxes .label svg {
+  position: absolute;
+  left: -27px;
+  bottom: 24%;
+  transition: stroke 0.2s ease;
+  z-index: 99;
+}
+.checkboxes .label svg path {
+  stroke: transparent;
+}
+.checkboxes .checkbox {
+  position: absolute;
+  left: -30px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--grey-200);
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: var(--fast);
+  cursor: pointer;
+}
+.checkboxes .checkbox:active {
+  transform: scale(0.9);
+  transition: var(--fast);
+  border: 2px solid var(--green-200);
+}
+.checkboxes .checkbox:checked {
+  background-color: var(--green-200);
+  border: none;
+  transition: var(--fast);
+}
+.checkboxes .checkbox:checked + svg path {
+  stroke: #18171F;
+}
+
+.strength {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var(--grey-850);
+  padding: 18px 16px;
+  box-sizing: border-box;
+}
+.strength h2 {
+  color: var(--grey-600);
+}
+.strength .strength-divs {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  background-color: transparent;
+  gap: 6px;
+}
+.strength .strength-divs .strength-desc {
+  color: var(--grey-200);
+  margin-right: 10px;
+  opacity: 0;
+  transition: var(--medium);
+}
+.strength .strength-divs .strength-div {
+  border: 2px solid var(--grey-200);
+  width: 6px;
+  height: 25px;
+}
+
+#generate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--green-200);
+  gap: 15px;
+  border: none;
+  color: var(--grey-800);
+  font-weight: 700;
+  padding: 22.5px 0;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+#generate:active {
+  background-color: transparent;
+  border: 2px solid var(--green-200);
+  color: var(--green-200);
+}
+#generate:active svg path {
+  stroke: transparent;
+  fill: var(--green-200);
+}

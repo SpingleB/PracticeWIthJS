@@ -1,0 +1,257 @@
+@import 'fonts';
+@import 'mixins';
+@import 'variables';
+@import 'media';
+@import 'active-classes';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    @include flex-row-center;
+    background: var(--gradient-1);
+}
+
+.password-generator {
+    @include flex-column-center;
+    width: 100vw;
+    background-color: transparent;
+    margin-top: 20%;
+    gap: 15px;
+    padding: 0 20px;
+}
+
+legend {
+    color: var(--grey-600);
+    font-weight: 600;
+}
+
+.show-pass {
+    position: relative;
+    background-color: var(--grey-800);
+    @include flex-row-btw-center;
+    width: 100%;
+    padding: 15px 15px;
+    box-sizing: border-box;
+
+    h1 {
+        color: var(--grey-700);
+        cursor: text;
+        transition: var(--fast);
+    }
+
+    #copied {
+        position: absolute;
+        color: var(--green-200);
+        opacity: 0;
+        right: 45px;
+        transition: var(--fast);
+    }
+
+    svg {
+        cursor: pointer;
+        transition: var(--fast);
+
+        &:active {
+            & path {
+                fill: var(--grey-200);
+                transition: var(--fast);
+            }
+        }
+    }
+}
+
+.main {
+    @include flex-column-center-start;
+    background-color: var(--grey-800);
+    padding: 20px 20px;
+    border: none;
+    gap: 15px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.length-div {
+    @include flex-row-btw-center;
+    width: 100%;
+    label {
+        color: var(--grey-200);
+    }
+
+    span {
+        color: var(--green-200);
+        font-weight: 700;
+    }
+}
+
+#range {
+    width: 100%;
+    border: none;
+    -webkit-appearance: none; 
+    -moz-appearance: none;    
+    appearance: none;         
+    width: 100%;
+    height: 8px;             
+    background: var(--grey-850);     
+    border-radius: 0;
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+    cursor: grab;
+
+    &::-webkit-slider-thumb:active {
+        border: 2px solid var(--green-200);
+        background-color: var(--grey-850);
+        cursor: grabbing;
+    }
+
+    &::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    height: 30px;
+    width: 30px;
+    background: var(--grey-200);
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -11px;
+
+}
+
+
+&::-webkit-slider-runnable-track {
+    height: 8px;
+    border-radius: 0px;
+}
+&::-moz-range-thumb {
+    height: 30px;
+    width: 30px;
+    background: var(--grey-850);
+    border-radius: 0;
+    cursor: pointer;
+}
+
+&::-moz-range-track {
+    height: 8px;
+    background: var(--grey-850);
+    border-radius: 0;
+}
+
+&::-moz-range-progress {
+    height: 8px;
+    background: var(--green-200);
+    border-radius: 0;
+}
+}
+
+.checkboxes {
+    position: relative;
+    @include flex-column-center-start;
+    width: 100%;
+    gap: 20px;
+    
+    .label {
+        position: relative;
+        margin-left: 35px;
+        color: var(--grey-200);
+
+        svg {
+            position: absolute;
+            left: -27px;
+            bottom: 24%;
+            transition: stroke 0.2s ease;
+            z-index: 99;
+
+            & path {
+                stroke: transparent;
+            }
+        }
+    }
+
+    .checkbox {
+        position: absolute;
+        left: -30px;
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--grey-200);
+        background-color: transparent;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none; 
+        transition: var(--fast);
+        cursor: pointer;
+        
+        &:active{
+            transform: scale(0.9);
+            transition: var(--fast);
+            border: 2px solid var(--green-200);
+        }
+
+        &:checked {
+            background-color: var(--green-200);
+            border: none;
+            transition: var(--fast);
+
+            & + svg {
+                path {
+                    stroke: #18171F;
+                }
+            }
+        }
+    }
+}
+
+.strength {
+    @include flex-row-btw-center;
+    width: 100%;
+    background-color: var(--grey-850);
+    padding: 18px 16px;
+    box-sizing: border-box;
+
+    h2 {
+        color: var(--grey-600);
+    }
+
+    .strength-divs {
+        @include flex-row-end-center;
+        background-color: transparent;
+        gap: 6px;
+        
+        .strength-desc {
+            color: var(--grey-200);
+            margin-right: 10px;
+            opacity: 0;
+            transition: var(--medium);
+        }
+
+        .strength-div {
+            border: 2px solid var(--grey-200);
+            width: 6px;
+            height: 25px;
+        }
+    }
+
+}
+
+#generate {
+    @include flex-row-center;
+    width: 100%;
+    background-color: var(--green-200);
+    gap: 15px;
+    border: none;
+    color: var(--grey-800);
+    font-weight: 700;
+    padding: 22.5px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:active {
+        background-color: transparent;
+        border: 2px solid var(--green-200);
+        color:var(--green-200);
+        svg path {
+            stroke: transparent;
+            fill: var(--green-200);
+        }
+    }
+}

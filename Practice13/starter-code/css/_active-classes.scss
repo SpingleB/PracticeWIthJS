@@ -1,0 +1,21 @@
+.pass-active {
+    color: var(--grey-200) !important;
+    transition: var(--fast);
+}
+
+.copy-active {
+    & path {
+        fill: var(--grey-200);
+        transition: var(--fast);
+    }
+}
+
+.strength-div-active {
+    background-color: var(--yellow-300);
+    border: 2px solid var(--yellow-300) !important;
+}
+
+.word-active {
+    transition: var(--fast) !important;
+    opacity: 1 !important;
+}

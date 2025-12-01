@@ -1,0 +1,16 @@
+:root {
+  --white: #FFFFFF;
+  --black: #000000;
+  --grey-950: #08070B;
+  --grey-900: #14131B;
+  --grey-850: #18171F;
+  --grey-800: #24232C;
+  --grey-700: #54535B;
+  --grey-600: #817D92;
+  --grey-200: #E6E5EA;
+  --green-200:#A4FFAF;
+  --yellow-300: #F8CD65;
+  --orange-400: #FB7C58;
+  --red-500: #F64A4A;
+  --gradient-1: linear-gradient(to right #14131B, #08070B);
+}
