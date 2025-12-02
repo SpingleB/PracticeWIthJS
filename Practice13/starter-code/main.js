@@ -101,6 +101,66 @@ function copyPass ( text ) {
     })
 }
 
+function choosePreset ( preset ) {
+    return `jetbrains-preset-${preset}`;
+}
+
+function getLastPreset ( text ) {
+  for ( let i = 1; i <= 4; i++) {
+    let cls = `jetbrains-preset-${i}`;
+    if (text.classList.contains(cls)) return cls;
+  }
+  return ``;
+}
+
+function resizePresets ( text, preset ) {
+  let lastClass = getLastPreset(text);
+  let choosenClass = choosePreset(preset);
+  if( window.innerWidth > 600) {
+    if (lastClass) text.classList.remove(lastClass);
+    text.classList.add(choosenClass);
+  } else {
+    if (text.classList.contains(choosenClass)) text.classList.remove(choosenClass);
+    if (lastClass) text.classList.add(lastClass);
+  } ;
+}
+
+const originalClasses = new Map();
+
+function addResizes(element, preset) {
+  if (!originalClasses.has(element)) {
+    originalClasses.set(element, getLastPreset(element));
+  }
+
+  window.addEventListener("resize", () => resizePresets(element, preset));
+  resizePresets(element, preset);
+}
+
+const legend = document.getElementById(`legend`);
+addResizes(legend, 2);
+const pass = document.getElementById(`pass`);
+addResizes(pass, 1);
+addResizes(copy, 3);
+const length = document.getElementById(`length`);
+addResizes(length, 1);
+const lengthLabel = document.getElementById(`length-label`);
+addResizes(lengthLabel, 3);
+const uppercase = document.getElementById(`uppercase`);
+addResizes(uppercase, 3);
+const lowercase = document.getElementById(`lowercase`);
+addResizes(lowercase, 3);
+const numbers = document.getElementById(`numbers`);
+addResizes(numbers, 3);
+const symbols = document.getElementById(`symbols`);
+addResizes(symbols, 3);
+const h2Strength = document.getElementById(`h2-strength`);
+addResizes(h2Strength, 3);
+const strengthDesc = document.querySelector(`.strength-desc`);
+addResizes(strengthDesc, 2);
+const generate = document.getElementById(`generate`);
+addResizes(generate, 3);
+
+
 
 function randomPass() {
   const uppercaseElement = document.getElementById("uppercase");

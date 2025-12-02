@@ -14,7 +14,7 @@
 </head>
 <body>
   <form class="password-generator">
-    <legend class="jetbrains-preset-4">Password Generator</legend>
+    <legend class="jetbrains-preset-4" id="legend">Password Generator</legend>
     <div class="show-pass">
       <h1 class="jetbrains-preset-2" id="pass">P4$5W0rD!</h1>
       <h3 id="copied" class="jetbrains-preset-4"></h3>
@@ -22,7 +22,7 @@
     </div>
     <fieldset class="main">
       <div class="length-div">
-        <label for="range" class="jetbrains-preset-4">Character Length</label>
+        <label for="range" class="jetbrains-preset-4" id="length-label">Character Length</label>
         <span id="length" class="jetbrains-preset-2">0</span>
       </div>
       <input type="range" min="0" max="20" step="1"  value="0" name="range" id="range">
@@ -45,7 +45,7 @@
         </label>
       </div>
       <div class="strength">
-        <h2 class="jetbrains-preset-4">STRENGTH</h2>
+        <h2 class="jetbrains-preset-4" id="h2-strength">STRENGTH</h2>
         <div class="strength-divs">
          <h2 class="strength-desc jetbrains-preset-2"></h2>
          <div class="strength-div"></div>
@@ -54,7 +54,7 @@
          <div class="strength-div"></div>
         </div>
       </div>
-      <button type="submit" id="generate" class="jetbrains-preset-4">GENERATE <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path fill="#24232C" d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"/></svg></button>
+      <button type="submit" id="generate" class="jetbrains-preset-4">GENERATE<svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><path fill="#24232C" d="m5.106 12 6-6-6-6-1.265 1.265 3.841 3.84H.001v1.79h7.681l-3.841 3.84z"/></svg></button>
     </fieldset>
   </form>
 </body>
