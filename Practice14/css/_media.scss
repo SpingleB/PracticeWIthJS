@@ -1,0 +1,112 @@
+@media (min-width: 600px) and (max-width: 900px) {
+    body {
+        padding: 0 60px !important;
+    }
+
+    header {
+        margin-top: 30px;
+    }
+
+    .next {
+        padding: 30px 0 !important;
+        border-radius: 24px;
+    }
+
+    .score-div{
+        gap: 40px !important;
+        border-radius: 24px;
+    }
+
+    .titles {
+        gap: 10px;
+    }
+}
+
+@media (min-width: 901px) {
+    body {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: auto;
+        min-height: 100vh;
+        min-width: 100vw;
+        padding: 0 9vw !important;
+        overflow-x: hidden;
+        column-gap: 9rem;
+    }  
+
+    #div-for-main-svg{
+        position: fixed;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .header {
+        grid-column: span 2 / span 2;
+        margin: 0 !important;
+    }
+
+    .main-text-div {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    align-self: self-start;
+    }
+
+    .categories {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    align-self: self-start;
+    }
+
+    .progress-bar {
+        margin-top: 80% !important;
+    }
+
+    .titles {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    margin: 0 !important;
+    }
+
+    .categories {
+    grid-column-start: 2;
+    grid-row-start: 2;
+
+    .categorie {
+        padding: 24px 5px !important;
+        border-radius: var(--border-radius-desktop) !important;
+    }
+    }
+
+    .answer {
+        padding: 40px 5px !important;
+        border-radius: var(--border-radius-desktop) !important;
+
+        &:hover {
+            border: 3px solid var(--purple600) !important;
+        }
+    }
+
+    .next {
+        padding: 32px 0 !important;
+    }
+
+    .active-answer {
+        border: 5px solid var(--purple600) !important;
+    }
+
+    .option {
+        width: 56px !important;
+        height: 56px !important;
+    }
+
+    .correct-answer {
+        border: 5px solid var(--green500);
+    }
+
+    .incorrect-answer {
+        border: 5px solid var(--red500);
+    }
+}

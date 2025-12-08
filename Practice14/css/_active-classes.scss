@@ -1,0 +1,138 @@
+.theme-btn-active {
+    &:after {
+        transform: translateX(16px);
+    }
+}
+
+.theme-dark {
+    .categorie-div__h2 {
+        color: var(--white);
+    }
+
+    background-color: var(--blue900);
+
+    .categorie {
+        color: var(--white) !important;
+    }
+
+    #score-type {
+        color: var(--white);
+    }
+
+    .main-text-div__first-h1 {
+        color: var(--white);
+    }
+    
+    .main-text-div__second-h1 {
+        color: var(--white);
+    }
+
+    .main-text-div__p {
+        color: var(--blue300);
+    }
+
+    .categorie {
+        background-color: var(--blue850);
+    }
+
+    .option {
+        background-color: var(--grey50) !important;
+        
+    }
+
+    .answer {
+        background-color: var(--blue850);
+        span {
+            color: var(--white) !important;
+        }
+    }
+
+    .question-count {
+    color: var(--blue300);
+    }
+
+    .question {
+    color: var(--white);
+    }
+
+    .progress-bar {
+        background-color: var(--blue850);
+    }
+
+    #completed {
+    color: var(--white);
+    }
+
+    #you-scored {
+    color: var(--white);
+    }
+
+    #score {
+    color: var(--white);
+    }
+
+    #of {
+        color: var(--blue300);
+    }
+
+    .score-div {
+        background-color: var(--blue850);
+    }
+}
+
+.new-svg-in-div {
+    height: 100%;
+}
+
+.incorrect-answer {
+    border: 3px solid var(--red500);
+    .option {
+        background-color: var(--red500) !important;
+        h2 {
+           color: var(--white) !important; 
+        }
+        
+    }
+}
+
+.correct-answer {
+    border: 3px solid var(--green500);
+    .option {
+        background-color: var(--green500) !important;
+        h2 {
+           color: var(--white) !important; 
+        }
+        
+    }
+}
+
+.css-background {
+    background-color: var(--green100);
+}
+
+.acessebility-background {
+    background-color: var(--purple100);
+}
+
+.js-background {
+    background-color: var(--blue50);
+}
+
+.html-background {
+    background-color: var(--orange50);
+}
+
+.active-answer {
+    border: 3px solid var(--purple600) !important;
+    .option {
+        background-color: var(--purple600) !important;
+        h2 {
+            color: var(--white) !important;
+        }
+        
+    }
+}
+
+.disabled-btn {
+    background-color: var(--purple100) !important;
+}
