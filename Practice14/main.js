@@ -237,7 +237,7 @@ for ( let i = 0; i < categriesArr.length; i++) {
           function showProgress () {
             const progressBar = document.querySelector(`.progress`);
             let precent = 0;
-            precent = ( questionNumber !== 0 ) ? ( questionNumber  / type.questions.length ) * 100 : questionNumber * 0;
+            precent = ( questionNumber !== 0 ) ? ( questionNumber  / type.questions.length ) * 100 : 0;
             progressBar.style.width = precent + `%`;
           }
 
