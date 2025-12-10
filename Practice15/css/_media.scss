@@ -1,0 +1,27 @@
+@media (min-width: 600px) {
+    .rate {
+        border-radius: var(--border-radius-desktop);
+        padding: 40px 35px;
+        width: 450px;
+    }
+
+    .rate-form{
+        &__rating-div{
+            input {
+            width: 51px;
+            height: 51px;
+            }
+        }
+    }
+    
+    .thanks {
+        width: 412px;
+        gap: 32px;
+        padding: 40px 32px;
+        border-radius: var(--border-radius-desktop);
+
+        .selected {
+            padding: 8px 12px 6px 12px;
+        }
+    }
+}

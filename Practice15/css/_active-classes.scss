@@ -1,0 +1,19 @@
+.active-rating-num {
+    background-color: var(--color-orange-500) !important;
+    color: var(--color-grey-900) !important;
+    transition: var(--fast);
+}
+
+.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.none {
+    display: none !important;
+}
+
+.invisible-thanks {
+    display: none !important;
+    opacity: none !important;
+}
