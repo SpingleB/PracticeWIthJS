@@ -1,0 +1,14 @@
+.show-ans {
+    height: auto;
+    transform: scaleY(1);
+    transition: var(--fast);
+    overflow: hidden;
+}
+
+.hide-ans {
+    transform: scaleY(0);
+    transition: var(--fast);
+    height: 0;
+    overflow: hidden;
+}
+

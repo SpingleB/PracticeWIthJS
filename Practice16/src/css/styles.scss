@@ -1,0 +1,66 @@
+@import 'variables';
+@import 'fonts';
+@import 'mixins';
+@import 'active-classes';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--color-purple-100) url("/assets/images/background-pattern-mobile.svg") top center/100% auto no-repeat;
+    height: 100vh;
+    @include flex-center;
+    padding: 0 25px;
+}
+
+.FAQ {
+    @include flex-dir-col-center-center;
+    background-color: var(--color-white);
+    padding: 24px;
+    min-width: 280px;
+    max-width: 600px;
+    gap: 24px;
+    border-radius: var(--faq-border-radius);
+    box-shadow: var(--faq-box-shadow);
+}
+
+.title-div {
+    @include flex-dir-row-start-center;
+    width: 100%;
+    gap: 25px;
+}
+
+.question-div {
+    @include flex-dir-row-btw-center;
+    width: 100%;
+    gap: 30px;
+    
+    .svg-div {
+        cursor: pointer;
+    }
+}
+
+.hidden {
+    height: 0;
+    overflow: hidden;
+}
+
+.p-div {
+    transition: height var(--fast);
+}
+
+.svg-div {
+    @include flex-center;
+}
+
+.p-div p{
+    margin-top: 30px;
+}
+
+.title {
+    cursor: pointer;
+}
+
+@import 'media';

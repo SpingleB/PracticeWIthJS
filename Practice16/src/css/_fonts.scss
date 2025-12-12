@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+.work-sans-1-bold {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: 3.5rem;
+  line-height: 4.125rem;
+  letter-spacing: 0;
+  font-style: normal;
+  color: var(--color-purple-950);
+}
+
+.work-sans-2-semiBold {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.313rem;
+  letter-spacing: 0;
+  font-style: normal;
+  color: var(--color-purple-950);
+}
+
+.work-sans-3-regular {
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+  font-style: normal;
+  color: var(--color-purple-600);
+}
