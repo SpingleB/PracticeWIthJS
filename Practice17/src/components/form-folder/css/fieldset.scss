@@ -1,0 +1,14 @@
+.fieldset {
+    @include flex-dir-column-center-start;
+    border: none;
+    width: 100%;
+    gap: 8px;
+} 
+.label{
+    color: var(--color-grey-900);
+}
+
+.required-star {
+    color: var(--color-green-600) !important;
+    margin-left: 5px;
+}

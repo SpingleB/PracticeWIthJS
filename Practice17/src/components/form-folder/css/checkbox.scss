@@ -1,0 +1,9 @@
+.checkbox {
+    -webkit-appearance: none; 
+    -moz-appearance: none;    
+    appearance: none; 
+    cursor: pointer;
+    border: 2px solid var(--color-grey-500);
+    width: 18px;
+    height: 18px;
+}
