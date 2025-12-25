@@ -1,9 +1,0 @@
-.message-div {
-    @include flex-dir-column-center-start;
-    width: 100%;
-    gap: 8px;
-
-    span:first-child{
-        color: var(--color-grey-900);
-    }
-}

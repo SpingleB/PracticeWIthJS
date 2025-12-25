@@ -1,1 +1,0 @@
-I started using React and npm, created a project based on Vite, it took me a long time because it was new to me, and in general I was a bit tired of it all, so I took a break, but now I'm ready to move on with renewed vigor!
