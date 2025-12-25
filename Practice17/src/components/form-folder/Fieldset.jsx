@@ -1,20 +1,17 @@
-import Input from './Input'
-
 const Fieldset = (props) => {
     const {
-      title,
       className,
       label,
       inputName,
       labelClassName,
-      inputType,
-      inputClassName,
-      autocomplete,
-      errorText
+      errorText,
+      children,
+      errorClass,
+      id
     } = props;
 
     return (
-      <fieldset className={className}>
+      <fieldset id={id} className={`${className}`}>
         <label
           htmlFor={inputName}
           className={`body-sm-regular ${labelClassName}`}
@@ -22,13 +19,7 @@ const Fieldset = (props) => {
           {label}
           <span className="required-star">*</span>
         </label>
-        <Input
-          className={inputClassName}
-          type={inputType}
-          title={title}
-          inputName={inputName}
-          autocomplete={autocomplete}
-        />
+        {children}
         <span className="body-sm-regular error">{errorText}</span>
       </fieldset>
     );

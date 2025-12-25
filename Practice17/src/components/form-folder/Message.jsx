@@ -4,7 +4,10 @@ const Message = (props) => {
         className,
         textareaId,
         titleText,
-        errorText
+        errorText,
+        onChange,
+        value,
+        errorClass
     } = props
     return (
       <div className="message-div">
@@ -15,7 +18,9 @@ const Message = (props) => {
         <textarea
           name={textareaName}
           id={textareaId}
-          className={className}
+          className={`${className} ${errorClass}`}
+          value={value}
+          onChange={onChange}
         ></textarea>
         <span className="body-sm-regular error">{errorText}</span>
       </div>

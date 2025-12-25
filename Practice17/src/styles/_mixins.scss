@@ -17,3 +17,16 @@
     justify-content: start;
     align-items: center;
 }
+
+@mixin flex-start-center {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+@mixin flex-dir-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

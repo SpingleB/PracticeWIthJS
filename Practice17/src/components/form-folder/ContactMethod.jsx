@@ -1,30 +1,37 @@
-import Fieldset from "./Fieldset";
+import { useState } from "react";
+import RadioFieldset from "./RadioFieldset";
+import Radio from './Radio'
 
 const ContactMethod = (props) => {
-  const { errorText } = props;
+  const { errorText, selected, onChange } = props;
+ 
     return (
       <div className="contact-method">
         <span className="body-sm-regular">
           Query Type <span className="required-star">*</span>
         </span>
         <div className="radio-div">
-          <Fieldset
+          <RadioFieldset
+            value="general"
+            selected={selected}
+            onChange={onChange}
             className="radio-fieldset"
-            title="General Enquiry"
-            inputName="choice"
             label="General Enquiry"
             labelClassName="radio-label"
-            inputType="radio"
-            inputClassName="input-radio"
+            radioClassName="input-radio"
+            radioName="choice"
+            checkedClass="fieldset-when-checked"
           />
-          <Fieldset
+          <RadioFieldset
+            value="support"
+            selected={selected}
+            onChange={onChange}
             className="radio-fieldset"
-            title="Support Request"
-            inputName="choice"
             label="Support Request"
             labelClassName="radio-label"
-            inputType="radio"
-            inputClassName="input-radio"
+            radioClassName="input-radio"
+            radioName="choice"
+            checkedClass="fieldset-when-checked"
           />
         </div>
         <span className="body-sm-regular error">{errorText}</span>

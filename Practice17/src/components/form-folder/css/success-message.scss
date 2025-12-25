@@ -1,0 +1,23 @@
+.success-message {
+    @include flex-dir-column-center-start;
+    gap: 8px;
+    border-radius: var(--success-message-radius);
+    background-color: var(--color-grey-900);
+    z-index: 9999;
+    color: var(--color-white);
+    position: absolute;
+    box-sizing: border-box;
+    padding: 24px;
+    top: 0;
+    left: 30px;
+    right: 30px;
+    top: -300px;
+    transform: translateY(320px);
+    transition: 0.3s ease;
+    max-width: 100%;
+
+    & div {
+        @include flex-start-center;
+        gap: 8px;
+    }
+}
